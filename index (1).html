@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DebugDiaries — Learn Web Development Step by Step</title>
+  <meta name="description" content="DebugDiaries is a blog for beginner web developers. Learn HTML, CSS, JavaScript and more with simple, easy tutorials."/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:     #2DA58E;
+      --green-light: #E6F7F3;
+      --green-dark:  #1B7A68;
+      --teal-mid:  #3DBFA6;
+      --white:     #FFFFFF;
+      --off-white: #F7FDFB;
+      --text:      #1A2E29;
+      --text-muted:#5A7570;
+      --border:    #C8EBE3;
+      --tag-bg:    #D4F5ED;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--off-white);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; z-index: 100;
+      padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 62px;
+    }
+    .nav-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700; font-size: 1.25rem;
+      color: var(--green-dark);
+      text-decoration: none;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .nav-logo span { color: var(--green); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none; color: var(--text-muted);
+      font-size: 0.95rem; font-weight: 500;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--green); }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, #E6F7F3 0%, #FFFFFF 60%, #D4F5ED 100%);
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      background: var(--tag-bg);
+      color: var(--green-dark);
+      font-size: 0.78rem; font-weight: 600;
+      letter-spacing: .08em; text-transform: uppercase;
+      padding: 4px 14px; border-radius: 20px;
+      margin-bottom: 1.2rem;
+    }
+    .hero h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 700; line-height: 1.15;
+      color: var(--text);
+      max-width: 680px; margin: 0 auto 1rem;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--green);
+      border-bottom: 3px solid var(--teal-mid);
+    }
+    .hero p {
+      color: var(--text-muted); font-size: 1.05rem;
+      max-width: 520px; margin: 0 auto 2rem;
+    }
+    .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--green); color: #fff;
+      padding: .75rem 1.8rem; border-radius: 8px;
+      font-weight: 600; font-size: .95rem;
+      text-decoration: none; transition: background .2s;
+    }
+    .btn-primary:hover { background: var(--green-dark); }
+    .btn-secondary {
+      background: transparent; color: var(--green);
+      border: 2px solid var(--green);
+      padding: .75rem 1.8rem; border-radius: 8px;
+      font-weight: 600; font-size: .95rem;
+      text-decoration: none; transition: all .2s;
+    }
+    .btn-secondary:hover { background: var(--green-light); }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 1.2rem 2rem;
+      display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap;
+    }
+    .stat { text-align: center; }
+    .stat-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.4rem; font-weight: 700; color: var(--green);
+    }
+    .stat-label { font-size: .78rem; color: var(--text-muted); }
+
+    /* ── MAIN LAYOUT ── */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+    .layout {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 2.5rem;
+      padding: 3rem 0;
+    }
+
+    /* ── SECTION HEADER ── */
+    .section-header {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 1.8rem;
+    }
+    .section-header h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.3rem; font-weight: 700;
+    }
+    .section-line {
+      flex: 1; height: 2px;
+      background: linear-gradient(to right, var(--border), transparent);
+    }
+
+    /* ── ARTICLE CARDS ── */
+    .article-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.4rem;
+      transition: box-shadow .2s, transform .2s;
+      cursor: pointer;
+    }
+    .article-card:hover {
+      box-shadow: 0 6px 24px rgba(45,165,142,.12);
+      transform: translateY(-2px);
+    }
+    .card-top { display: flex; align-items: center; gap: 10px; margin-bottom: .8rem; }
+    .tag {
+      background: var(--tag-bg); color: var(--green-dark);
+      font-size: .72rem; font-weight: 600;
+      padding: 3px 10px; border-radius: 20px;
+      text-transform: uppercase; letter-spacing: .05em;
+    }
+    .read-time { font-size: .78rem; color: var(--text-muted); }
+    .article-card h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.1rem; font-weight: 700;
+      margin-bottom: .5rem; color: var(--text);
+    }
+    .article-card p { font-size: .9rem; color: var(--text-muted); margin-bottom: 1rem; }
+    .card-footer {
+      display: flex; align-items: center;
+      justify-content: space-between;
+    }
+    .author-row { display: flex; align-items: center; gap: 8px; }
+    .avatar {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: var(--green); color: #fff;
+      font-size: .7rem; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .author-name { font-size: .8rem; font-weight: 500; }
+    .read-link {
+      font-size: .82rem; color: var(--green);
+      font-weight: 600; text-decoration: none;
+    }
+    .read-link:hover { text-decoration: underline; }
+
+    /* ── FEATURED (big card) ── */
+    .featured-card {
+      background: linear-gradient(135deg, var(--green-dark), var(--green));
+      color: #fff; border-radius: 14px;
+      padding: 2rem; margin-bottom: 1.4rem;
+    }
+    .featured-card .tag { background: rgba(255,255,255,.2); color: #fff; }
+    .featured-card h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.3rem; font-weight: 700; margin: .8rem 0 .5rem;
+    }
+    .featured-card p { font-size: .9rem; opacity: .85; margin-bottom: 1.2rem; }
+    .featured-card .read-link { color: #fff; opacity: .9; }
+
+    /* ── SIDEBAR ── */
+    .sidebar-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.4rem;
+      margin-bottom: 1.4rem;
+    }
+    .sidebar-card h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem; font-weight: 700;
+      margin-bottom: 1rem; color: var(--text);
+    }
+    .topic-list { list-style: none; }
+    .topic-list li {
+      padding: .5rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: .88rem;
+      display: flex; justify-content: space-between;
+    }
+    .topic-list li:last-child { border: none; }
+    .topic-list a { text-decoration: none; color: var(--text); transition: color .2s; }
+    .topic-list a:hover { color: var(--green); }
+    .topic-count {
+      background: var(--tag-bg); color: var(--green-dark);
+      font-size: .72rem; font-weight: 700;
+      padding: 2px 8px; border-radius: 10px;
+    }
+
+    /* newsletter */
+    .newsletter-card {
+      background: var(--green-light);
+      border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.4rem;
+      margin-bottom: 1.4rem; text-align: center;
+    }
+    .newsletter-card h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem; font-weight: 700; margin-bottom: .4rem;
+    }
+    .newsletter-card p { font-size: .82rem; color: var(--text-muted); margin-bottom: 1rem; }
+    .nl-input {
+      width: 100%; padding: .6rem .9rem;
+      border: 1px solid var(--border); border-radius: 7px;
+      font-size: .88rem; margin-bottom: .7rem;
+      outline: none;
+    }
+    .nl-input:focus { border-color: var(--green); }
+    .nl-btn {
+      width: 100%; background: var(--green); color: #fff;
+      border: none; border-radius: 7px;
+      padding: .65rem; font-size: .88rem; font-weight: 600;
+      cursor: pointer; transition: background .2s;
+    }
+    .nl-btn:hover { background: var(--green-dark); }
+
+    /* ── ADSENSE PLACEHOLDER ── */
+    .ad-box {
+      background: #f0f0f0;
+      border: 1px dashed #ccc;
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: center;
+      color: #aaa;
+      font-size: .78rem;
+      margin-bottom: 1.4rem;
+      min-height: 90px;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--text);
+      color: rgba(255,255,255,.7);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      font-size: .85rem;
+    }
+    footer a { color: var(--teal-mid); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    .footer-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 1rem; flex-wrap: wrap; }
+
+    /* ── RESPONSIVE ── */
+    @media(max-width: 768px) {
+      .layout { grid-template-columns: 1fr; }
+      .stats-bar { gap: 1.5rem; }
+      nav { padding: 0 1rem; }
+      .nav-links { gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="index.html">🐛 Debug<span>Diaries</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="privacy.html">Privacy</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">Web Development Blog</div>
+  <h1>Learn to code,<br/><em>one bug at a time.</em></h1>
+  <p>Simple, beginner-friendly tutorials on HTML, CSS, JavaScript, and Git — written by a CS student, for CS students.</p>
+  <div class="hero-btns">
+    <a href="blog.html" class="btn-primary">Read Articles</a>
+    <a href="about.html" class="btn-secondary">About Me</a>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat"><div class="stat-num">15+</div><div class="stat-label">Articles</div></div>
+  <div class="stat"><div class="stat-num">3</div><div class="stat-label">Topics</div></div>
+  <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Beginner Friendly</div></div>
+  <div class="stat"><div class="stat-num">Free</div><div class="stat-label">Always</div></div>
+</div>
+
+<!-- MAIN -->
+<div class="container">
+  <div class="layout">
+
+    <!-- ARTICLES -->
+    <main>
+      <div class="section-header">
+        <h2>Featured Article</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <!-- Featured -->
+      <div class="featured-card">
+        <div class="card-top">
+          <span class="tag">HTML</span>
+          <span class="read-time" style="opacity:.8">5 min read</span>
+        </div>
+        <h3>HTML for Absolute Beginners — Start Here</h3>
+        <p>Never written a single line of code? This guide takes you from zero to your first webpage in under an hour. No experience needed.</p>
+        <a href="post-html-beginners.html" class="read-link">Read Article →</a>
+      </div>
+
+      <div class="section-header">
+        <h2>Latest Articles</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <!-- AdSense Top -->
+      <div class="ad-box">
+        <!-- Google AdSense Ad Unit — Replace with your ad code -->
+        Advertisement
+      </div>
+
+      <!-- Card 1 -->
+      <div class="article-card">
+        <div class="card-top">
+          <span class="tag">CSS</span>
+          <span class="read-time">4 min read</span>
+        </div>
+        <h3>CSS Flexbox Explained — With Real Examples</h3>
+        <p>Flexbox confuses every beginner. This article breaks it down with visual diagrams and practical examples you can use right away.</p>
+        <div class="card-footer">
+          <div class="author-row">
+            <div class="avatar">S</div>
+            <span class="author-name">Saman</span>
+          </div>
+          <a href="post-css-flexbox.html" class="read-link">Read →</a>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="article-card">
+        <div class="card-top">
+          <span class="tag">JavaScript</span>
+          <span class="read-time">6 min read</span>
+        </div>
+        <h3>JavaScript Variables: var vs let vs const</h3>
+        <p>What is the difference between var, let, and const? This is one of the most common beginner questions — answered clearly and simply.</p>
+        <div class="card-footer">
+          <div class="author-row">
+            <div class="avatar">S</div>
+            <span class="author-name">Saman</span>
+          </div>
+          <a href="post-js-variables.html" class="read-link">Read →</a>
+        </div>
+      </div>
+
+      <!-- AdSense Middle -->
+      <div class="ad-box">
+        <!-- Google AdSense Ad Unit — Replace with your ad code -->
+        Advertisement
+      </div>
+
+      <!-- Card 3 -->
+      <div class="article-card">
+        <div class="card-top">
+          <span class="tag">Git</span>
+          <span class="read-time">5 min read</span>
+        </div>
+        <h3>Git & GitHub: Your First Repository in 10 Minutes</h3>
+        <p>Every developer needs Git. Learn how to create your first repository, make commits, and push to GitHub — step by step.</p>
+        <div class="card-footer">
+          <div class="author-row">
+            <div class="avatar">S</div>
+            <span class="author-name">Saman</span>
+          </div>
+          <a href="post-git-basics.html" class="read-link">Read →</a>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="article-card">
+        <div class="card-top">
+          <span class="tag">HTML</span>
+          <span class="read-time">3 min read</span>
+        </div>
+        <h3>What is Semantic HTML and Why Should You Care?</h3>
+        <p>Using the right HTML tags makes your site better for SEO, accessibility, and readability. Here is what semantic HTML means and how to use it.</p>
+        <div class="card-footer">
+          <div class="author-row">
+            <div class="avatar">S</div>
+            <span class="author-name">Saman</span>
+          </div>
+          <a href="#" class="read-link">Read →</a>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- SIDEBAR -->
+    <aside>
+      <div class="newsletter-card">
+        <h3>📬 Stay Updated</h3>
+        <p>Get new tutorials in your inbox. No spam, ever.</p>
+        <input class="nl-input" type="email" placeholder="your@email.com"/>
+        <button class="nl-btn">Subscribe Free</button>
+      </div>
+
+      <div class="sidebar-card">
+        <h3>Browse Topics</h3>
+        <ul class="topic-list">
+          <li><a href="#">HTML</a><span class="topic-count">5</span></li>
+          <li><a href="#">CSS</a><span class="topic-count">4</span></li>
+          <li><a href="#">JavaScript</a><span class="topic-count">4</span></li>
+          <li><a href="#">Git & GitHub</a><span class="topic-count">2</span></li>
+        </ul>
+      </div>
+
+      <!-- AdSense Sidebar -->
+      <div class="ad-box" style="min-height:250px;">
+        <!-- Google AdSense Ad Unit — Replace with your ad code -->
+        Advertisement
+      </div>
+
+      <div class="sidebar-card">
+        <h3>👩‍💻 About the Author</h3>
+        <p style="font-size:.85rem; color:var(--text-muted)">Hi! I am Saman, a CS student and web developer from Pakistan. I write simple tutorials for beginners.</p>
+        <a href="about.html" class="read-link" style="font-size:.85rem;">Learn more →</a>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="blog.html">Blog</a>
+    <a href="about.html">About</a>
+    <a href="privacy.html">Privacy Policy</a>
+  </div>
+  <p>© 2026 DebugDiaries · Made with ❤️ by Saman · Pakistan</p>
+</footer>
+
+</body>
+</html>

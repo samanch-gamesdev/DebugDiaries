@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HTML for Absolute Beginners — DebugDiaries</title>
+  <meta name="description" content="Never written code before? Learn HTML from scratch and build your first webpage in under an hour. Step by step guide for complete beginners."/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root { --green:#2DA58E; --green-light:#E6F7F3; --green-dark:#1B7A68; --teal-mid:#3DBFA6; --white:#FFFFFF; --off-white:#F7FDFB; --text:#1A2E29; --text-muted:#5A7570; --border:#C8EBE3; --tag-bg:#D4F5ED; }
+    body { font-family:'Inter',sans-serif; background:var(--off-white); color:var(--text); line-height:1.8; }
+    nav { background:var(--white); border-bottom:1px solid var(--border); position:sticky; top:0; z-index:100; padding:0 2rem; display:flex; align-items:center; justify-content:space-between; height:62px; }
+    .nav-logo { font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:1.25rem; color:var(--green-dark); text-decoration:none; }
+    .nav-logo span { color:var(--green); }
+    .nav-links { display:flex; gap:2rem; list-style:none; }
+    .nav-links a { text-decoration:none; color:var(--text-muted); font-size:.95rem; font-weight:500; }
+    .nav-links a:hover { color:var(--green); }
+
+    .post-hero { background:linear-gradient(135deg,#E6F7F3,#fff); padding:3rem 2rem 2rem; border-bottom:1px solid var(--border); }
+    .post-hero .container { max-width:780px; margin:0 auto; }
+    .tag { display:inline-block; background:var(--tag-bg); color:var(--green-dark); font-size:.72rem; font-weight:600; padding:3px 10px; border-radius:20px; text-transform:uppercase; letter-spacing:.05em; margin-bottom:1rem; }
+    .post-hero h1 { font-family:'Space Grotesk',sans-serif; font-size:clamp(1.6rem,4vw,2.4rem); font-weight:700; line-height:1.2; margin-bottom:.8rem; }
+    .post-meta { display:flex; align-items:center; gap:1rem; color:var(--text-muted); font-size:.85rem; }
+    .avatar { width:32px; height:32px; border-radius:50%; background:var(--green); color:#fff; font-size:.75rem; font-weight:700; display:flex; align-items:center; justify-content:center; }
+
+    .container { max-width:780px; margin:0 auto; padding:2.5rem 1.5rem; }
+    .post-body h2 { font-family:'Space Grotesk',sans-serif; font-size:1.3rem; font-weight:700; margin:2rem 0 .8rem; color:var(--green-dark); }
+    .post-body p { font-size:.97rem; color:var(--text-muted); margin-bottom:1rem; }
+    .post-body ul, .post-body ol { margin:.5rem 0 1rem 1.5rem; }
+    .post-body li { font-size:.97rem; color:var(--text-muted); margin-bottom:.4rem; }
+    .code-block { background:#1A2E29; color:#A8F0E0; border-radius:10px; padding:1.4rem 1.6rem; font-family:monospace; font-size:.88rem; line-height:1.7; margin:1.2rem 0; overflow-x:auto; }
+    .code-block .tag-color { color:#7DD3FC; }
+    .code-block .attr-color { color:#FCA5A5; }
+    .code-block .val-color { color:#86EFAC; }
+    .tip-box { background:var(--green-light); border-left:4px solid var(--green); border-radius:0 8px 8px 0; padding:1rem 1.2rem; margin:1.2rem 0; font-size:.9rem; color:var(--green-dark); }
+    .tip-box strong { font-weight:700; }
+    .ad-box { background:#f0f0f0; border:1px dashed #ccc; border-radius:8px; padding:1rem; text-align:center; color:#aaa; font-size:.78rem; margin:1.5rem 0; min-height:90px; display:flex; align-items:center; justify-content:center; }
+
+    footer { background:var(--text); color:rgba(255,255,255,.7); padding:2rem; text-align:center; font-size:.85rem; margin-top:2rem; }
+    footer a { color:var(--teal-mid); text-decoration:none; }
+    .footer-links { display:flex; justify-content:center; gap:2rem; margin-bottom:1rem; flex-wrap:wrap; }
+  </style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">🐛 Debug<span>Diaries</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="privacy.html">Privacy</a></li>
+  </ul>
+</nav>
+
+<div class="post-hero">
+  <div class="container">
+    <span class="tag">HTML</span>
+    <h1>HTML for Absolute Beginners — Start Here</h1>
+    <div class="post-meta">
+      <div class="avatar">S</div>
+      <span>By Saman</span>
+      <span>·</span>
+      <span>5 min read</span>
+      <span>·</span>
+      <span>June 2026</span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="post-body">
+
+    <p>If you have never written a single line of code in your life, this article is for you. By the end of this guide, you will understand what HTML is, how it works, and you will have built your very first webpage.</p>
+
+    <div class="ad-box"><!-- Google AdSense Ad Unit -->Advertisement</div>
+
+    <h2>What is HTML?</h2>
+    <p>HTML stands for HyperText Markup Language. It is the standard language used to create web pages. Every website you have ever visited — Google, YouTube, Instagram — all of them use HTML as their foundation.</p>
+    <p>Think of HTML like the skeleton of a webpage. It gives structure to your content. CSS adds the style (colors, fonts), and JavaScript adds behavior (clicks, animations). But everything starts with HTML.</p>
+
+    <h2>How Does HTML Work?</h2>
+    <p>HTML uses something called <strong>tags</strong> to tell the browser what kind of content to display. A tag looks like this:</p>
+    <div class="code-block">&lt;p&gt;This is a paragraph.&lt;/p&gt;</div>
+    <p>Notice two things:</p>
+    <ol>
+      <li>The tag opens with <code>&lt;p&gt;</code></li>
+      <li>The tag closes with <code>&lt;/p&gt;</code> (notice the forward slash)</li>
+    </ol>
+    <p>Everything between the opening and closing tag is the content that will appear on the page.</p>
+
+    <div class="tip-box"><strong>💡 Tip:</strong> Most HTML tags come in pairs — an opening tag and a closing tag. Always remember to close your tags!</div>
+
+    <h2>Your First HTML Page</h2>
+    <p>Every HTML page follows the same basic structure. Here is the simplest possible webpage:</p>
+    <div class="code-block">
+&lt;!DOCTYPE html&gt;<br/>
+&lt;html&gt;<br/>
+&nbsp;&nbsp;&lt;head&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;My First Page&lt;/title&gt;<br/>
+&nbsp;&nbsp;&lt;/head&gt;<br/>
+&nbsp;&nbsp;&lt;body&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;Hello World!&lt;/h1&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;This is my first webpage.&lt;/p&gt;<br/>
+&nbsp;&nbsp;&lt;/body&gt;<br/>
+&lt;/html&gt;
+    </div>
+
+    <h2>What Does Each Part Mean?</h2>
+    <ul>
+      <li><strong>&lt;!DOCTYPE html&gt;</strong> — Tells the browser this is an HTML5 document</li>
+      <li><strong>&lt;html&gt;</strong> — The root element. Everything goes inside here</li>
+      <li><strong>&lt;head&gt;</strong> — Contains information about the page (not visible to users)</li>
+      <li><strong>&lt;title&gt;</strong> — The text that appears in the browser tab</li>
+      <li><strong>&lt;body&gt;</strong> — Everything the user sees goes here</li>
+      <li><strong>&lt;h1&gt;</strong> — A heading (h1 is the biggest, h6 is the smallest)</li>
+      <li><strong>&lt;p&gt;</strong> — A paragraph of text</li>
+    </ul>
+
+    <div class="ad-box"><!-- Google AdSense Ad Unit -->Advertisement</div>
+
+    <h2>Try It Yourself!</h2>
+    <p>Here is how to create your first webpage right now:</p>
+    <ol>
+      <li>Open Notepad (Windows) or TextEdit (Mac)</li>
+      <li>Copy the code above and paste it</li>
+      <li>Save the file as <strong>index.html</strong></li>
+      <li>Open the file in your browser</li>
+    </ol>
+    <p>You should see "Hello World!" displayed as a big heading on the page. Congratulations — you just wrote your first HTML!</p>
+
+    <div class="tip-box"><strong>🎉 You did it!</strong> Every professional web developer started exactly where you are right now. Keep practicing and you will be building full websites before you know it.</div>
+
+    <h2>What to Learn Next?</h2>
+    <p>Now that you understand the basics of HTML, here is what you should learn next:</p>
+    <ul>
+      <li>More HTML tags — links, images, lists, tables</li>
+      <li>CSS — to style your pages with colors and fonts</li>
+      <li>How to put your website online using GitHub and Netlify</li>
+    </ul>
+    <p>Check out the other articles on DebugDiaries to continue your journey!</p>
+
+  </div>
+</div>
+
+<footer>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="blog.html">Blog</a>
+    <a href="about.html">About</a>
+    <a href="privacy.html">Privacy Policy</a>
+  </div>
+  <p>© 2026 DebugDiaries · Made with ❤️ by Saman · Pakistan</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About — DebugDiaries</title>
+  <meta name="description" content="Learn about Saman, the CS student and web developer behind DebugDiaries."/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green:#2DA58E; --green-light:#E6F7F3; --green-dark:#1B7A68;
+      --teal-mid:#3DBFA6; --white:#FFFFFF; --off-white:#F7FDFB;
+      --text:#1A2E29; --text-muted:#5A7570; --border:#C8EBE3; --tag-bg:#D4F5ED;
+    }
+    body { font-family:'Inter',sans-serif; background:var(--off-white); color:var(--text); line-height:1.7; }
+    nav { background:var(--white); border-bottom:1px solid var(--border); position:sticky; top:0; z-index:100; padding:0 2rem; display:flex; align-items:center; justify-content:space-between; height:62px; }
+    .nav-logo { font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:1.25rem; color:var(--green-dark); text-decoration:none; }
+    .nav-logo span { color:var(--green); }
+    .nav-links { display:flex; gap:2rem; list-style:none; }
+    .nav-links a { text-decoration:none; color:var(--text-muted); font-size:.95rem; font-weight:500; transition:color .2s; }
+    .nav-links a:hover { color:var(--green); }
+    .container { max-width:800px; margin:0 auto; padding:3rem 1.5rem; }
+    .about-hero { text-align:center; margin-bottom:3rem; }
+    .big-avatar { width:100px; height:100px; border-radius:50%; background:linear-gradient(135deg,var(--green-dark),var(--green)); color:#fff; font-family:'Space Grotesk',sans-serif; font-size:2.5rem; font-weight:700; display:flex; align-items:center; justify-content:center; margin:0 auto 1.2rem; }
+    .about-hero h1 { font-family:'Space Grotesk',sans-serif; font-size:2rem; font-weight:700; margin-bottom:.5rem; }
+    .about-hero p { color:var(--text-muted); font-size:1rem; }
+    .badge { display:inline-block; background:var(--tag-bg); color:var(--green-dark); font-size:.75rem; font-weight:600; padding:4px 12px; border-radius:20px; margin:.3rem; }
+    .card { background:var(--white); border:1px solid var(--border); border-radius:12px; padding:1.8rem; margin-bottom:1.5rem; }
+    .card h2 { font-family:'Space Grotesk',sans-serif; font-size:1.15rem; font-weight:700; margin-bottom:1rem; color:var(--green-dark); }
+    .card p { font-size:.95rem; color:var(--text-muted); margin-bottom:.8rem; }
+    .skill-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(130px,1fr)); gap:.7rem; }
+    .skill-item { background:var(--green-light); border:1px solid var(--border); border-radius:8px; padding:.6rem 1rem; font-size:.85rem; font-weight:500; text-align:center; color:var(--green-dark); }
+    footer { background:var(--text); color:rgba(255,255,255,.7); padding:2rem; text-align:center; font-size:.85rem; margin-top:2rem; }
+    footer a { color:var(--teal-mid); text-decoration:none; }
+    .footer-links { display:flex; justify-content:center; gap:2rem; margin-bottom:1rem; flex-wrap:wrap; }
+  </style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">🐛 Debug<span>Diaries</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="privacy.html">Privacy</a></li>
+  </ul>
+</nav>
+
+<div class="container">
+  <div class="about-hero">
+    <div class="big-avatar">S</div>
+    <h1>Hi, I am Saman 👋</h1>
+    <p>CS Student · Web Developer · From Pakistan 🇵🇰</p>
+    <br/>
+    <span class="badge">HTML & CSS</span>
+    <span class="badge">JavaScript</span>
+    <span class="badge">Git & GitHub</span>
+    <span class="badge">Netlify</span>
+    <span class="badge">Graphic Design</span>
+  </div>
+
+  <div class="card">
+    <h2>About Me</h2>
+    <p>I am a Bachelor of Science in Computer Science student at COMSATS University Islamabad. I love web development and I am passionate about helping other beginners learn to code.</p>
+    <p>I started DebugDiaries because when I was learning HTML and CSS, I struggled to find simple and clear explanations. Every tutorial felt too complicated. So I decided to write the tutorials I wish I had when I was starting out.</p>
+    <p>On this blog, I write about everything I am learning — HTML, CSS, JavaScript, Git, and more. My goal is to make web development easy and fun for every beginner, especially students like me.</p>
+  </div>
+
+  <div class="card">
+    <h2>My Skills</h2>
+    <div class="skill-grid">
+      <div class="skill-item">HTML5</div>
+      <div class="skill-item">CSS3</div>
+      <div class="skill-item">JavaScript</div>
+      <div class="skill-item">Git</div>
+      <div class="skill-item">GitHub</div>
+      <div class="skill-item">Netlify</div>
+      <div class="skill-item">Canva</div>
+      <div class="skill-item">Responsive Design</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Why DebugDiaries?</h2>
+    <p>Every programmer spends a lot of time debugging — finding and fixing errors in their code. I named this blog DebugDiaries because learning to code is basically a diary of debugging your own understanding, one error at a time.</p>
+    <p>The name also reminds us that making mistakes is completely normal and part of the process. Every bug you fix makes you a better developer.</p>
+  </div>
+
+  <div class="card">
+    <h2>Connect With Me</h2>
+    <p>I am always happy to connect with fellow students and developers. Feel free to reach out!</p>
+    <p>📍 Pakistan &nbsp;|&nbsp; 🎓 COMSATS University Islamabad &nbsp;|&nbsp; 💻 Web Developer</p>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="blog.html">Blog</a>
+    <a href="about.html">About</a>
+    <a href="privacy.html">Privacy Policy</a>
+  </div>
+  <p>© 2026 DebugDiaries · Made with ❤️ by Saman · Pakistan</p>
+</footer>
+</body>
+</html>
