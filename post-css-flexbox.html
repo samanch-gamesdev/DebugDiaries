@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CSS Flexbox Explained — DebugDiaries</title>
+  <meta name="description" content="Learn CSS Flexbox with simple examples. This beginner-friendly guide explains flexbox properties with visual examples you can use right away."/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root { --green:#2DA58E; --green-light:#E6F7F3; --green-dark:#1B7A68; --teal-mid:#3DBFA6; --white:#FFFFFF; --off-white:#F7FDFB; --text:#1A2E29; --text-muted:#5A7570; --border:#C8EBE3; --tag-bg:#D4F5ED; }
+    body { font-family:'Inter',sans-serif; background:var(--off-white); color:var(--text); line-height:1.8; }
+    nav { background:var(--white); border-bottom:1px solid var(--border); position:sticky; top:0; z-index:100; padding:0 2rem; display:flex; align-items:center; justify-content:space-between; height:62px; }
+    .nav-logo { font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:1.25rem; color:var(--green-dark); text-decoration:none; }
+    .nav-logo span { color:var(--green); }
+    .nav-links { display:flex; gap:2rem; list-style:none; }
+    .nav-links a { text-decoration:none; color:var(--text-muted); font-size:.95rem; font-weight:500; }
+    .nav-links a:hover { color:var(--green); }
+    .post-hero { background:linear-gradient(135deg,#E6F7F3,#fff); padding:3rem 2rem 2rem; border-bottom:1px solid var(--border); }
+    .post-hero .container { max-width:780px; margin:0 auto; }
+    .tag { display:inline-block; background:var(--tag-bg); color:var(--green-dark); font-size:.72rem; font-weight:600; padding:3px 10px; border-radius:20px; text-transform:uppercase; letter-spacing:.05em; margin-bottom:1rem; }
+    .post-hero h1 { font-family:'Space Grotesk',sans-serif; font-size:clamp(1.6rem,4vw,2.4rem); font-weight:700; line-height:1.2; margin-bottom:.8rem; }
+    .post-meta { display:flex; align-items:center; gap:1rem; color:var(--text-muted); font-size:.85rem; }
+    .avatar { width:32px; height:32px; border-radius:50%; background:var(--green); color:#fff; font-size:.75rem; font-weight:700; display:flex; align-items:center; justify-content:center; }
+    .container { max-width:780px; margin:0 auto; padding:2.5rem 1.5rem; }
+    .post-body h2 { font-family:'Space Grotesk',sans-serif; font-size:1.3rem; font-weight:700; margin:2rem 0 .8rem; color:var(--green-dark); }
+    .post-body p { font-size:.97rem; color:var(--text-muted); margin-bottom:1rem; }
+    .post-body ul { margin:.5rem 0 1rem 1.5rem; }
+    .post-body li { font-size:.97rem; color:var(--text-muted); margin-bottom:.4rem; }
+    .code-block { background:#1A2E29; color:#A8F0E0; border-radius:10px; padding:1.4rem 1.6rem; font-family:monospace; font-size:.88rem; line-height:1.7; margin:1.2rem 0; overflow-x:auto; }
+    .tip-box { background:var(--green-light); border-left:4px solid var(--green); border-radius:0 8px 8px 0; padding:1rem 1.2rem; margin:1.2rem 0; font-size:.9rem; color:var(--green-dark); }
+    .ad-box { background:#f0f0f0; border:1px dashed #ccc; border-radius:8px; padding:1rem; text-align:center; color:#aaa; font-size:.78rem; margin:1.5rem 0; min-height:90px; display:flex; align-items:center; justify-content:center; }
+    .flex-demo { background:var(--white); border:1px solid var(--border); border-radius:10px; padding:1.2rem; margin:1rem 0; }
+    .flex-demo-title { font-size:.8rem; font-weight:600; color:var(--text-muted); margin-bottom:.8rem; text-transform:uppercase; }
+    .flex-box { display:flex; gap:8px; background:var(--green-light); padding:1rem; border-radius:8px; }
+    .flex-item { background:var(--green); color:#fff; padding:.5rem 1rem; border-radius:6px; font-size:.85rem; font-weight:600; }
+    .flex-col { flex-direction:column; }
+    .flex-center { justify-content:center; align-items:center; min-height:80px; }
+    .flex-between { justify-content:space-between; }
+    footer { background:var(--text); color:rgba(255,255,255,.7); padding:2rem; text-align:center; font-size:.85rem; margin-top:2rem; }
+    footer a { color:var(--teal-mid); text-decoration:none; }
+    .footer-links { display:flex; justify-content:center; gap:2rem; margin-bottom:1rem; flex-wrap:wrap; }
+  </style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">🐛 Debug<span>Diaries</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="privacy.html">Privacy</a></li>
+  </ul>
+</nav>
+
+<div class="post-hero">
+  <div class="container">
+    <span class="tag">CSS</span>
+    <h1>CSS Flexbox Explained — With Real Examples</h1>
+    <div class="post-meta">
+      <div class="avatar">S</div>
+      <span>By Saman</span><span>·</span>
+      <span>4 min read</span><span>·</span>
+      <span>June 2026</span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="post-body">
+    <p>Flexbox is one of the most useful CSS tools for beginners. Once you understand it, you will be able to create layouts that previously seemed impossible. Let us break it down simply.</p>
+
+    <div class="ad-box"><!-- Google AdSense -->Advertisement</div>
+
+    <h2>What is Flexbox?</h2>
+    <p>Flexbox (Flexible Box Layout) is a CSS layout system that makes it easy to arrange elements in a row or column. It helps you align and distribute space among items in a container.</p>
+    <p>Before Flexbox, aligning things in CSS was very hard. With Flexbox, it becomes simple!</p>
+
+    <h2>How to Enable Flexbox</h2>
+    <p>To use Flexbox, add <strong>display: flex</strong> to the parent container:</p>
+    <div class="code-block">
+.container {<br/>
+&nbsp;&nbsp;display: flex;<br/>
+}
+    </div>
+    <p>That is it! Now all the children inside become flex items.</p>
+
+    <h2>Flexbox in Action</h2>
+    <div class="flex-demo">
+      <div class="flex-demo-title">display: flex — items in a row</div>
+      <div class="flex-box">
+        <div class="flex-item">Item 1</div>
+        <div class="flex-item">Item 2</div>
+        <div class="flex-item">Item 3</div>
+      </div>
+    </div>
+
+    <h2>flex-direction</h2>
+    <p>This property controls whether items go in a row or column.</p>
+    <div class="code-block">
+.container {<br/>
+&nbsp;&nbsp;display: flex;<br/>
+&nbsp;&nbsp;flex-direction: row; /* default */<br/>
+&nbsp;&nbsp;/* or: flex-direction: column; */<br/>
+}
+    </div>
+    <div class="flex-demo">
+      <div class="flex-demo-title">flex-direction: column</div>
+      <div class="flex-box flex-col" style="width:150px">
+        <div class="flex-item">Item 1</div>
+        <div class="flex-item">Item 2</div>
+        <div class="flex-item">Item 3</div>
+      </div>
+    </div>
+
+    <div class="ad-box"><!-- Google AdSense -->Advertisement</div>
+
+    <h2>justify-content</h2>
+    <p>This controls how items are positioned <strong>horizontally</strong> (along the main axis).</p>
+    <div class="code-block">
+.container {<br/>
+&nbsp;&nbsp;display: flex;<br/>
+&nbsp;&nbsp;justify-content: center; /* center items */<br/>
+&nbsp;&nbsp;/* other values: flex-start, flex-end, space-between, space-around */<br/>
+}
+    </div>
+    <div class="flex-demo">
+      <div class="flex-demo-title">justify-content: space-between</div>
+      <div class="flex-box flex-between">
+        <div class="flex-item">Item 1</div>
+        <div class="flex-item">Item 2</div>
+        <div class="flex-item">Item 3</div>
+      </div>
+    </div>
+
+    <h2>align-items</h2>
+    <p>This controls how items are positioned <strong>vertically</strong> (along the cross axis).</p>
+    <div class="code-block">
+.container {<br/>
+&nbsp;&nbsp;display: flex;<br/>
+&nbsp;&nbsp;align-items: center; /* vertically center */<br/>
+}
+    </div>
+
+    <div class="tip-box"><strong>💡 Quick Trick:</strong> To center something both horizontally and vertically, use:<br/><br/><code>display: flex; justify-content: center; align-items: center;</code><br/><br/>This is the most common flexbox pattern every developer uses!</div>
+
+    <h2>What to Learn Next?</h2>
+    <p>Now that you know Flexbox basics, try these next:</p>
+    <ul>
+      <li>CSS Grid — for more complex layouts</li>
+      <li>Responsive design — making your site work on mobile</li>
+      <li>JavaScript basics — to add interactivity</li>
+    </ul>
+    <p>Check out more articles on <a href="blog.html" style="color:var(--green)">DebugDiaries</a>!</p>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="blog.html">Blog</a>
+    <a href="about.html">About</a>
+    <a href="privacy.html">Privacy Policy</a>
+  </div>
+  <p>© 2026 DebugDiaries · Made with ❤️ by Saman · Pakistan</p>
+</footer>
+</body>
+</html>
