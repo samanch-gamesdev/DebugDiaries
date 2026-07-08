@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JavaScript Functions for Beginners — DebugDiaries</title>
+  <meta name="description" content="Learn JavaScript functions from scratch. This complete beginner guide explains what functions are, how to write them, and when to use them with clear examples."/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet"/>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3564160409092253" crossorigin="anonymous"></script>
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root { --green:#2DA58E; --green-light:#E6F7F3; --green-dark:#1B7A68; --teal-mid:#3DBFA6; --white:#FFFFFF; --off-white:#F7FDFB; --text:#1A2E29; --text-muted:#5A7570; --border:#C8EBE3; --tag-bg:#D4F5ED; }
+    body { font-family:'Inter',sans-serif; background:var(--off-white); color:var(--text); line-height:1.8; }
+    nav { background:var(--white); border-bottom:1px solid var(--border); position:sticky; top:0; z-index:100; padding:0 2rem; display:flex; align-items:center; justify-content:space-between; height:62px; }
+    .nav-logo { font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:1.25rem; color:var(--green-dark); text-decoration:none; }
+    .nav-logo span { color:var(--green); }
+    .nav-links { display:flex; gap:2rem; list-style:none; }
+    .nav-links a { text-decoration:none; color:var(--text-muted); font-size:.95rem; font-weight:500; }
+    .nav-links a:hover { color:var(--green); }
+    .post-hero { background:linear-gradient(135deg,#E6F7F3,#fff); padding:3rem 2rem 2rem; border-bottom:1px solid var(--border); }
+    .post-hero .container { max-width:780px; margin:0 auto; }
+    .tag { display:inline-block; background:var(--tag-bg); color:var(--green-dark); font-size:.72rem; font-weight:600; padding:3px 10px; border-radius:20px; text-transform:uppercase; letter-spacing:.05em; margin-bottom:1rem; }
+    .post-hero h1 { font-family:'Space Grotesk',sans-serif; font-size:clamp(1.6rem,4vw,2.4rem); font-weight:700; line-height:1.2; margin-bottom:.8rem; }
+    .post-meta { display:flex; align-items:center; gap:1rem; color:var(--text-muted); font-size:.85rem; }
+    .avatar { width:32px; height:32px; border-radius:50%; background:var(--green); color:#fff; font-size:.75rem; font-weight:700; display:flex; align-items:center; justify-content:center; }
+    .container { max-width:780px; margin:0 auto; padding:2.5rem 1.5rem; }
+    .post-body h2 { font-family:'Space Grotesk',sans-serif; font-size:1.3rem; font-weight:700; margin:2rem 0 .8rem; color:var(--green-dark); }
+    .post-body p { font-size:.97rem; color:var(--text-muted); margin-bottom:1rem; }
+    .post-body ul, .post-body ol { margin:.5rem 0 1rem 1.5rem; }
+    .post-body li { font-size:.97rem; color:var(--text-muted); margin-bottom:.6rem; }
+    .code-block { background:#1A2E29; color:#A8F0E0; border-radius:10px; padding:1.4rem 1.6rem; font-family:monospace; font-size:.88rem; line-height:1.7; margin:1.2rem 0; overflow-x:auto; }
+    .tip-box { background:var(--green-light); border-left:4px solid var(--green); border-radius:0 8px 8px 0; padding:1rem 1.2rem; margin:1.2rem 0; font-size:.9rem; color:var(--green-dark); }
+    .ad-box { background:#f0f0f0; border:1px dashed #ccc; border-radius:8px; padding:1rem; text-align:center; color:#aaa; font-size:.78rem; margin:1.5rem 0; min-height:90px; display:flex; align-items:center; justify-content:center; }
+    footer { background:var(--text); color:rgba(255,255,255,.7); padding:2rem; text-align:center; font-size:.85rem; margin-top:2rem; }
+    footer a { color:var(--teal-mid); text-decoration:none; }
+    .footer-links { display:flex; justify-content:center; gap:2rem; margin-bottom:1rem; flex-wrap:wrap; }
+  </style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">🐛 Debug<span>Diaries</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="privacy.html">Privacy</a></li>
+  </ul>
+</nav>
+<div class="post-hero">
+  <div class="container">
+    <span class="tag">JavaScript</span>
+    <h1>JavaScript Functions for Beginners — Complete Guide</h1>
+    <div class="post-meta">
+      <div class="avatar">S</div>
+      <span>By Saman</span><span>·</span><span>9 min read</span><span>·</span><span>July 2026</span>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="post-body">
+    <p>Functions are one of the most important concepts in JavaScript — and in programming in general. Once you understand functions, you will be able to write much better, cleaner, and more organized code. In this guide, we will cover everything you need to know about JavaScript functions as a beginner.</p>
+
+    <div class="ad-box">Advertisement</div>
+
+    <h2>What is a Function?</h2>
+    <p>A function is a reusable block of code that performs a specific task. Instead of writing the same code over and over again, you write it once inside a function and then call that function whenever you need it.</p>
+    <p>Think of a function like a recipe. You write the recipe once, and then any time you want to make that dish, you just follow the recipe. You do not write it out again from scratch every time.</p>
+
+    <h2>Why Use Functions?</h2>
+    <p>Functions are essential in programming for several reasons:</p>
+    <ul>
+      <li><strong>Reusability</strong> — Write code once, use it many times</li>
+      <li><strong>Organization</strong> — Break your code into small, manageable pieces</li>
+      <li><strong>Readability</strong> — Well-named functions make code easy to understand</li>
+      <li><strong>Debugging</strong> — Easier to find and fix bugs in small functions</li>
+      <li><strong>Maintainability</strong> — If you need to change something, you only change it in one place</li>
+    </ul>
+
+    <h2>How to Write a Function</h2>
+    <p>In JavaScript, the most common way to write a function is using the function keyword:</p>
+    <div class="code-block">
+function greet() {<br/>
+&nbsp;&nbsp;console.log("Hello! Welcome to DebugDiaries!");<br/>
+}<br/>
+<br/>
+// Call the function<br/>
+greet(); // Output: Hello! Welcome to DebugDiaries!
+    </div>
+    <p>Let us break this down:</p>
+    <ul>
+      <li><strong>function</strong> — the keyword that tells JavaScript we are creating a function</li>
+      <li><strong>greet</strong> — the name we give our function</li>
+      <li><strong>()</strong> — parentheses where we can pass information into the function</li>
+      <li><strong>{}</strong> — curly braces that contain the code the function will run</li>
+    </ul>
+
+    <div class="ad-box">Advertisement</div>
+
+    <h2>Functions with Parameters</h2>
+    <p>Parameters allow you to pass information into a function so it can work with different data each time it is called:</p>
+    <div class="code-block">
+function greet(name) {<br/>
+&nbsp;&nbsp;console.log("Hello, " + name + "!");<br/>
+}<br/>
+<br/>
+greet("Saman");  // Output: Hello, Saman!<br/>
+greet("Ahmed");  // Output: Hello, Ahmed!<br/>
+greet("Fatima"); // Output: Hello, Fatima!
+    </div>
+    <p>Now the same function works for any name! You can also have multiple parameters:</p>
+    <div class="code-block">
+function add(num1, num2) {<br/>
+&nbsp;&nbsp;console.log(num1 + num2);<br/>
+}<br/>
+<br/>
+add(5, 3);  // Output: 8<br/>
+add(10, 20); // Output: 30
+    </div>
+
+    <h2>Functions that Return Values</h2>
+    <p>Sometimes you want a function to calculate something and give you back the result. You use the <strong>return</strong> keyword for this:</p>
+    <div class="code-block">
+function multiply(num1, num2) {<br/>
+&nbsp;&nbsp;return num1 * num2;<br/>
+}<br/>
+<br/>
+const result = multiply(4, 5);<br/>
+console.log(result); // Output: 20<br/>
+<br/>
+// You can also use the return value directly<br/>
+console.log(multiply(3, 7)); // Output: 21
+    </div>
+    <div class="tip-box"><strong>💡 Important:</strong> When a function hits a return statement, it stops running immediately and sends back the value. Any code after return inside the function will not run.</div>
+
+    <h2>Arrow Functions — The Modern Way</h2>
+    <p>In modern JavaScript (ES6 and later), there is a shorter way to write functions called arrow functions. They use an arrow (=>) instead of the function keyword:</p>
+    <div class="code-block">
+// Regular function<br/>
+function greet(name) {<br/>
+&nbsp;&nbsp;return "Hello, " + name;<br/>
+}<br/>
+<br/>
+// Arrow function — same thing, shorter syntax<br/>
+const greet = (name) => {<br/>
+&nbsp;&nbsp;return "Hello, " + name;<br/>
+}<br/>
+<br/>
+// Even shorter — when there is only one line<br/>
+const greet = (name) => "Hello, " + name;
+    </div>
+    <p>Arrow functions are very popular in modern JavaScript code. You will see them everywhere once you start reading other developers code.</p>
+
+    <h2>Default Parameters</h2>
+    <p>You can give your parameters default values that are used when no value is passed in:</p>
+    <div class="code-block">
+function greet(name = "friend") {<br/>
+&nbsp;&nbsp;return "Hello, " + name + "!";<br/>
+}<br/>
+<br/>
+console.log(greet("Saman")); // Hello, Saman!<br/>
+console.log(greet());        // Hello, friend!
+    </div>
+
+    <h2>What to Learn Next?</h2>
+    <p>Now that you understand JavaScript functions, here is what to explore next:</p>
+    <ul>
+      <li><strong>Scope</strong> — understanding where variables can be accessed</li>
+      <li><strong>Callback functions</strong> — passing functions as arguments to other functions</li>
+      <li><strong>Higher-order functions</strong> — map, filter, reduce</li>
+      <li><strong>Async functions</strong> — handling asynchronous operations</li>
+    </ul>
+    <p>Functions are the building blocks of JavaScript. Keep practicing and check out more on <a href="blog.html" style="color:var(--green)">DebugDiaries</a>!</p>
+  </div>
+</div>
+<footer>
+  <div class="footer-links">
+    <a href="index.html">Home</a><a href="blog.html">Blog</a><a href="about.html">About</a><a href="privacy.html">Privacy Policy</a>
+  </div>
+  <p>© 2026 DebugDiaries · Made with ❤️ by Saman · Pakistan</p>
+</footer>
+</body>
+</html>

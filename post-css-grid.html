@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CSS Grid Explained for Beginners — DebugDiaries</title>
+  <meta name="description" content="Learn CSS Grid from scratch. This beginner-friendly guide explains CSS Grid with simple examples and real code you can use today."/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet"/>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3564160409092253" crossorigin="anonymous"></script>
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root { --green:#2DA58E; --green-light:#E6F7F3; --green-dark:#1B7A68; --teal-mid:#3DBFA6; --white:#FFFFFF; --off-white:#F7FDFB; --text:#1A2E29; --text-muted:#5A7570; --border:#C8EBE3; --tag-bg:#D4F5ED; }
+    body { font-family:'Inter',sans-serif; background:var(--off-white); color:var(--text); line-height:1.8; }
+    nav { background:var(--white); border-bottom:1px solid var(--border); position:sticky; top:0; z-index:100; padding:0 2rem; display:flex; align-items:center; justify-content:space-between; height:62px; }
+    .nav-logo { font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:1.25rem; color:var(--green-dark); text-decoration:none; }
+    .nav-logo span { color:var(--green); }
+    .nav-links { display:flex; gap:2rem; list-style:none; }
+    .nav-links a { text-decoration:none; color:var(--text-muted); font-size:.95rem; font-weight:500; }
+    .nav-links a:hover { color:var(--green); }
+    .post-hero { background:linear-gradient(135deg,#E6F7F3,#fff); padding:3rem 2rem 2rem; border-bottom:1px solid var(--border); }
+    .post-hero .container { max-width:780px; margin:0 auto; }
+    .tag { display:inline-block; background:var(--tag-bg); color:var(--green-dark); font-size:.72rem; font-weight:600; padding:3px 10px; border-radius:20px; text-transform:uppercase; letter-spacing:.05em; margin-bottom:1rem; }
+    .post-hero h1 { font-family:'Space Grotesk',sans-serif; font-size:clamp(1.6rem,4vw,2.4rem); font-weight:700; line-height:1.2; margin-bottom:.8rem; }
+    .post-meta { display:flex; align-items:center; gap:1rem; color:var(--text-muted); font-size:.85rem; }
+    .avatar { width:32px; height:32px; border-radius:50%; background:var(--green); color:#fff; font-size:.75rem; font-weight:700; display:flex; align-items:center; justify-content:center; }
+    .container { max-width:780px; margin:0 auto; padding:2.5rem 1.5rem; }
+    .post-body h2 { font-family:'Space Grotesk',sans-serif; font-size:1.3rem; font-weight:700; margin:2rem 0 .8rem; color:var(--green-dark); }
+    .post-body h3 { font-family:'Space Grotesk',sans-serif; font-size:1.1rem; font-weight:600; margin:1.5rem 0 .6rem; color:var(--text); }
+    .post-body p { font-size:.97rem; color:var(--text-muted); margin-bottom:1rem; }
+    .post-body ul, .post-body ol { margin:.5rem 0 1rem 1.5rem; }
+    .post-body li { font-size:.97rem; color:var(--text-muted); margin-bottom:.6rem; }
+    .code-block { background:#1A2E29; color:#A8F0E0; border-radius:10px; padding:1.4rem 1.6rem; font-family:monospace; font-size:.88rem; line-height:1.7; margin:1.2rem 0; overflow-x:auto; }
+    .tip-box { background:var(--green-light); border-left:4px solid var(--green); border-radius:0 8px 8px 0; padding:1rem 1.2rem; margin:1.2rem 0; font-size:.9rem; color:var(--green-dark); }
+    .ad-box { background:#f0f0f0; border:1px dashed #ccc; border-radius:8px; padding:1rem; text-align:center; color:#aaa; font-size:.78rem; margin:1.5rem 0; min-height:90px; display:flex; align-items:center; justify-content:center; }
+    .grid-demo { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; background:var(--green-light); padding:1rem; border-radius:8px; margin:1rem 0; }
+    .grid-item { background:var(--green); color:#fff; padding:.7rem; border-radius:6px; font-size:.85rem; font-weight:600; text-align:center; }
+    footer { background:var(--text); color:rgba(255,255,255,.7); padding:2rem; text-align:center; font-size:.85rem; margin-top:2rem; }
+    footer a { color:var(--teal-mid); text-decoration:none; }
+    .footer-links { display:flex; justify-content:center; gap:2rem; margin-bottom:1rem; flex-wrap:wrap; }
+  </style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">🐛 Debug<span>Diaries</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="privacy.html">Privacy</a></li>
+  </ul>
+</nav>
+<div class="post-hero">
+  <div class="container">
+    <span class="tag">CSS</span>
+    <h1>CSS Grid Explained for Beginners — With Real Examples</h1>
+    <div class="post-meta">
+      <div class="avatar">S</div>
+      <span>By Saman</span><span>·</span><span>8 min read</span><span>·</span><span>July 2026</span>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="post-body">
+    <p>If you have ever tried to create a webpage layout with rows and columns, CSS Grid is exactly what you need. It is one of the most powerful layout tools in CSS, and once you learn it, you will wonder how you ever built websites without it.</p>
+    <p>In this guide, we will start from the very basics and build up to real examples you can use in your own projects. By the end, you will understand how CSS Grid works and feel confident using it.</p>
+
+    <div class="ad-box">Advertisement</div>
+
+    <h2>What is CSS Grid?</h2>
+    <p>CSS Grid is a two-dimensional layout system for the web. Unlike Flexbox, which works in one direction (either rows or columns), CSS Grid lets you work with both rows and columns at the same time. This makes it perfect for creating page layouts, card grids, and complex designs.</p>
+    <p>Think of CSS Grid like a table in Microsoft Word or Excel. You define how many rows and columns you want, and then you place your content inside the cells. The big difference is that CSS Grid is much more flexible and powerful than a regular table.</p>
+
+    <h2>Why Learn CSS Grid?</h2>
+    <p>Before CSS Grid, developers had to use complicated hacks with floats, positioning, and tables to create layouts. CSS Grid makes all of this much easier. Here are some reasons why every web developer should learn CSS Grid:</p>
+    <ul>
+      <li>It makes complex layouts simple and easy to understand</li>
+      <li>It works in two dimensions — rows AND columns simultaneously</li>
+      <li>It reduces the amount of code you need to write</li>
+      <li>It is supported by all modern browsers</li>
+      <li>It combines perfectly with Flexbox for even more control</li>
+    </ul>
+
+    <h2>How to Enable CSS Grid</h2>
+    <p>Just like Flexbox, enabling CSS Grid is very simple. You just need to add one line of CSS to your container element:</p>
+    <div class="code-block">
+.container {<br/>
+&nbsp;&nbsp;display: grid;<br/>
+}
+    </div>
+    <p>That is it! Now the element is a grid container and all its children become grid items. But just enabling grid does not do much yet — we need to define our rows and columns.</p>
+
+    <h2>Defining Columns with grid-template-columns</h2>
+    <p>The most important property in CSS Grid is <strong>grid-template-columns</strong>. This is where you define how many columns you want and how wide each one should be.</p>
+    <div class="code-block">
+.container {<br/>
+&nbsp;&nbsp;display: grid;<br/>
+&nbsp;&nbsp;grid-template-columns: 200px 200px 200px;<br/>
+}
+    </div>
+    <p>This creates three columns, each 200 pixels wide. But typing the same value three times is repetitive. CSS Grid has a special function called <strong>repeat()</strong> that makes this easier:</p>
+    <div class="code-block">
+.container {<br/>
+&nbsp;&nbsp;display: grid;<br/>
+&nbsp;&nbsp;grid-template-columns: repeat(3, 200px);<br/>
+&nbsp;&nbsp;/* Same as: 200px 200px 200px */<br/>
+}
+    </div>
+
+    <div class="ad-box">Advertisement</div>
+
+    <h2>The fr Unit — Flexible Fractions</h2>
+    <p>One of the most useful features of CSS Grid is the <strong>fr</strong> unit. It stands for "fraction" and it lets you divide the available space proportionally. This is much better than using pixels because it automatically adjusts to any screen size.</p>
+    <div class="code-block">
+.container {<br/>
+&nbsp;&nbsp;display: grid;<br/>
+&nbsp;&nbsp;grid-template-columns: 1fr 1fr 1fr;<br/>
+&nbsp;&nbsp;/* Three equal columns */<br/>
+}
+    </div>
+    <div class="grid-demo">
+      <div class="grid-item">Column 1</div>
+      <div class="grid-item">Column 2</div>
+      <div class="grid-item">Column 3</div>
+      <div class="grid-item">Item 4</div>
+      <div class="grid-item">Item 5</div>
+      <div class="grid-item">Item 6</div>
+    </div>
+    <p>You can also mix fr units with fixed sizes. For example, you can create a layout with a fixed sidebar and a flexible main content area:</p>
+    <div class="code-block">
+.container {<br/>
+&nbsp;&nbsp;display: grid;<br/>
+&nbsp;&nbsp;grid-template-columns: 250px 1fr;<br/>
+&nbsp;&nbsp;/* Fixed sidebar + flexible content */<br/>
+}
+    </div>
+
+    <h2>Adding Gaps Between Items</h2>
+    <p>By default, grid items sit right next to each other with no space in between. You can add spacing using the <strong>gap</strong> property:</p>
+    <div class="code-block">
+.container {<br/>
+&nbsp;&nbsp;display: grid;<br/>
+&nbsp;&nbsp;grid-template-columns: repeat(3, 1fr);<br/>
+&nbsp;&nbsp;gap: 20px; /* Space between all items */<br/>
+}
+    </div>
+    <p>You can also control the row gap and column gap separately using <strong>row-gap</strong> and <strong>column-gap</strong>.</p>
+
+    <h2>Defining Rows with grid-template-rows</h2>
+    <p>Just like you can define columns, you can also define the height of your rows using <strong>grid-template-rows</strong>:</p>
+    <div class="code-block">
+.container {<br/>
+&nbsp;&nbsp;display: grid;<br/>
+&nbsp;&nbsp;grid-template-columns: repeat(3, 1fr);<br/>
+&nbsp;&nbsp;grid-template-rows: 100px 200px;<br/>
+&nbsp;&nbsp;/* First row 100px, second row 200px */<br/>
+}
+    </div>
+
+    <h2>Grid vs Flexbox — Which One to Use?</h2>
+    <p>A very common question for beginners is: when should I use Grid and when should I use Flexbox? Here is a simple rule to remember:</p>
+    <ul>
+      <li><strong>Use Flexbox</strong> for one-dimensional layouts — arranging items in a single row or column, like a navigation bar or a row of buttons</li>
+      <li><strong>Use Grid</strong> for two-dimensional layouts — when you need to control both rows and columns, like a page layout or a card grid</li>
+    </ul>
+    <div class="tip-box"><strong>💡 Pro Tip:</strong> You do not have to choose between Grid and Flexbox! The best websites use both together. Use Grid for the overall page layout, and use Flexbox for aligning items inside each grid area.</div>
+
+    <h2>A Real Example: Blog Card Grid</h2>
+    <p>Here is a practical example of CSS Grid — creating a responsive grid of blog cards:</p>
+    <div class="code-block">
+.cards-grid {<br/>
+&nbsp;&nbsp;display: grid;<br/>
+&nbsp;&nbsp;grid-template-columns: repeat(3, 1fr);<br/>
+&nbsp;&nbsp;gap: 24px;<br/>
+&nbsp;&nbsp;padding: 2rem;<br/>
+}<br/>
+<br/>
+.card {<br/>
+&nbsp;&nbsp;background: white;<br/>
+&nbsp;&nbsp;border-radius: 12px;<br/>
+&nbsp;&nbsp;padding: 1.5rem;<br/>
+&nbsp;&nbsp;box-shadow: 0 2px 8px rgba(0,0,0,0.1);<br/>
+}
+    </div>
+
+    <h2>What to Learn Next?</h2>
+    <p>Now that you understand the basics of CSS Grid, here is what to explore next:</p>
+    <ul>
+      <li><strong>grid-column and grid-row</strong> — make items span multiple columns or rows</li>
+      <li><strong>grid-template-areas</strong> — name your grid areas for easier placement</li>
+      <li><strong>auto-fit and auto-fill</strong> — create truly responsive grids without media queries</li>
+      <li><strong>minmax()</strong> — set minimum and maximum sizes for grid tracks</li>
+    </ul>
+    <p>CSS Grid is a huge topic but you have already learned the most important parts. Keep practicing and check out more tutorials on <a href="blog.html" style="color:var(--green)">DebugDiaries</a>!</p>
+  </div>
+</div>
+<footer>
+  <div class="footer-links">
+    <a href="index.html">Home</a><a href="blog.html">Blog</a><a href="about.html">About</a><a href="privacy.html">Privacy Policy</a>
+  </div>
+  <p>© 2026 DebugDiaries · Made with ❤️ by Saman · Pakistan</p>
+</footer>
+</body>
+</html>

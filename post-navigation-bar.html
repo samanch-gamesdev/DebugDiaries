@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>How to Build a Navigation Bar with HTML and CSS — DebugDiaries</title>
+  <meta name="description" content="Learn how to build a professional navigation bar using HTML and CSS. Step by step guide for beginners with complete code examples."/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet"/>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3564160409092253" crossorigin="anonymous"></script>
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root { --green:#2DA58E; --green-light:#E6F7F3; --green-dark:#1B7A68; --teal-mid:#3DBFA6; --white:#FFFFFF; --off-white:#F7FDFB; --text:#1A2E29; --text-muted:#5A7570; --border:#C8EBE3; --tag-bg:#D4F5ED; }
+    body { font-family:'Inter',sans-serif; background:var(--off-white); color:var(--text); line-height:1.8; }
+    nav { background:var(--white); border-bottom:1px solid var(--border); position:sticky; top:0; z-index:100; padding:0 2rem; display:flex; align-items:center; justify-content:space-between; height:62px; }
+    .nav-logo { font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:1.25rem; color:var(--green-dark); text-decoration:none; }
+    .nav-logo span { color:var(--green); }
+    .nav-links { display:flex; gap:2rem; list-style:none; }
+    .nav-links a { text-decoration:none; color:var(--text-muted); font-size:.95rem; font-weight:500; }
+    .nav-links a:hover { color:var(--green); }
+    .post-hero { background:linear-gradient(135deg,#E6F7F3,#fff); padding:3rem 2rem 2rem; border-bottom:1px solid var(--border); }
+    .post-hero .container { max-width:780px; margin:0 auto; }
+    .tag { display:inline-block; background:var(--tag-bg); color:var(--green-dark); font-size:.72rem; font-weight:600; padding:3px 10px; border-radius:20px; text-transform:uppercase; letter-spacing:.05em; margin-bottom:1rem; }
+    .post-hero h1 { font-family:'Space Grotesk',sans-serif; font-size:clamp(1.6rem,4vw,2.4rem); font-weight:700; line-height:1.2; margin-bottom:.8rem; }
+    .post-meta { display:flex; align-items:center; gap:1rem; color:var(--text-muted); font-size:.85rem; }
+    .avatar { width:32px; height:32px; border-radius:50%; background:var(--green); color:#fff; font-size:.75rem; font-weight:700; display:flex; align-items:center; justify-content:center; }
+    .container { max-width:780px; margin:0 auto; padding:2.5rem 1.5rem; }
+    .post-body h2 { font-family:'Space Grotesk',sans-serif; font-size:1.3rem; font-weight:700; margin:2rem 0 .8rem; color:var(--green-dark); }
+    .post-body p { font-size:.97rem; color:var(--text-muted); margin-bottom:1rem; }
+    .post-body ul, .post-body ol { margin:.5rem 0 1rem 1.5rem; }
+    .post-body li { font-size:.97rem; color:var(--text-muted); margin-bottom:.6rem; }
+    .code-block { background:#1A2E29; color:#A8F0E0; border-radius:10px; padding:1.4rem 1.6rem; font-family:monospace; font-size:.88rem; line-height:1.7; margin:1.2rem 0; overflow-x:auto; }
+    .tip-box { background:var(--green-light); border-left:4px solid var(--green); border-radius:0 8px 8px 0; padding:1rem 1.2rem; margin:1.2rem 0; font-size:.9rem; color:var(--green-dark); }
+    .ad-box { background:#f0f0f0; border:1px dashed #ccc; border-radius:8px; padding:1rem; text-align:center; color:#aaa; font-size:.78rem; margin:1.5rem 0; min-height:90px; display:flex; align-items:center; justify-content:center; }
+    .demo-nav { background:#1A2E29; padding:1rem 1.5rem; border-radius:10px; display:flex; align-items:center; justify-content:space-between; margin:1rem 0; }
+    .demo-logo { color:#A8F0E0; font-weight:700; font-size:1rem; }
+    .demo-links { display:flex; gap:1.5rem; list-style:none; }
+    .demo-links a { color:rgba(255,255,255,.7); text-decoration:none; font-size:.85rem; }
+    footer { background:var(--text); color:rgba(255,255,255,.7); padding:2rem; text-align:center; font-size:.85rem; margin-top:2rem; }
+    footer a { color:var(--teal-mid); text-decoration:none; }
+    .footer-links { display:flex; justify-content:center; gap:2rem; margin-bottom:1rem; flex-wrap:wrap; }
+  </style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">🐛 Debug<span>Diaries</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="privacy.html">Privacy</a></li>
+  </ul>
+</nav>
+<div class="post-hero">
+  <div class="container">
+    <span class="tag">HTML & CSS</span>
+    <h1>How to Build a Navigation Bar with HTML and CSS</h1>
+    <div class="post-meta">
+      <div class="avatar">S</div>
+      <span>By Saman</span><span>·</span><span>7 min read</span><span>·</span><span>July 2026</span>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="post-body">
+    <p>A navigation bar is one of the most important parts of any website. It helps users move between pages and find what they are looking for. In this tutorial, you will learn how to build a clean, professional navigation bar from scratch using only HTML and CSS — no JavaScript needed!</p>
+    <p>By the end of this guide, you will have a fully working navigation bar that you can add to any website project.</p>
+
+    <div class="ad-box">Advertisement</div>
+
+    <h2>What is a Navigation Bar?</h2>
+    <p>A navigation bar (also called a navbar) is a section of a website, usually at the top, that contains links to the main pages of the site. You see navigation bars on every website you visit — they usually have the logo on the left and links on the right.</p>
+    <p>A good navigation bar should be easy to use, always visible, and consistent across all pages of the website. It is usually the first thing a visitor sees when they land on your site, so it is important to get it right.</p>
+
+    <h2>The HTML Structure</h2>
+    <p>Let us start with the HTML. We will use the semantic HTML5 nav element, which is the correct way to mark up a navigation section:</p>
+    <div class="code-block">
+&lt;nav class="navbar"&gt;<br/>
+&nbsp;&nbsp;&lt;a href="index.html" class="logo"&gt;MyWebsite&lt;/a&gt;<br/>
+&nbsp;&nbsp;&lt;ul class="nav-links"&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="index.html"&gt;Home&lt;/a&gt;&lt;/li&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="about.html"&gt;About&lt;/a&gt;&lt;/li&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="blog.html"&gt;Blog&lt;/a&gt;&lt;/li&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="contact.html"&gt;Contact&lt;/a&gt;&lt;/li&gt;<br/>
+&nbsp;&nbsp;&lt;/ul&gt;<br/>
+&lt;/nav&gt;
+    </div>
+    <p>Notice we are using a ul (unordered list) for the navigation links. This is the correct and semantic way to build a nav menu — it tells screen readers and search engines that these are a list of related links.</p>
+
+    <h2>Basic CSS Styling</h2>
+    <p>Now let us add CSS to make the navigation bar look good. We will use Flexbox to align the logo and links:</p>
+    <div class="code-block">
+.navbar {<br/>
+&nbsp;&nbsp;background-color: #1A2E29;<br/>
+&nbsp;&nbsp;padding: 0 2rem;<br/>
+&nbsp;&nbsp;display: flex;<br/>
+&nbsp;&nbsp;align-items: center;<br/>
+&nbsp;&nbsp;justify-content: space-between;<br/>
+&nbsp;&nbsp;height: 64px;<br/>
+}<br/>
+<br/>
+.logo {<br/>
+&nbsp;&nbsp;color: white;<br/>
+&nbsp;&nbsp;text-decoration: none;<br/>
+&nbsp;&nbsp;font-size: 1.3rem;<br/>
+&nbsp;&nbsp;font-weight: 700;<br/>
+}<br/>
+<br/>
+.nav-links {<br/>
+&nbsp;&nbsp;list-style: none;<br/>
+&nbsp;&nbsp;display: flex;<br/>
+&nbsp;&nbsp;gap: 2rem;<br/>
+}<br/>
+<br/>
+.nav-links a {<br/>
+&nbsp;&nbsp;color: rgba(255, 255, 255, 0.8);<br/>
+&nbsp;&nbsp;text-decoration: none;<br/>
+&nbsp;&nbsp;font-size: 0.95rem;<br/>
+&nbsp;&nbsp;transition: color 0.2s;<br/>
+}<br/>
+<br/>
+.nav-links a:hover {<br/>
+&nbsp;&nbsp;color: white;<br/>
+}
+    </div>
+
+    <h2>Live Preview</h2>
+    <p>Here is what our navigation bar looks like with this CSS applied:</p>
+    <div class="demo-nav">
+      <div class="demo-logo">MyWebsite</div>
+      <ul class="demo-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="ad-box">Advertisement</div>
+
+    <h2>Making the Navbar Sticky</h2>
+    <p>A sticky navbar stays at the top of the screen even when the user scrolls down. This is very important for user experience because users should always be able to navigate without scrolling back to the top. Here is how to make your navbar sticky:</p>
+    <div class="code-block">
+.navbar {<br/>
+&nbsp;&nbsp;position: sticky;<br/>
+&nbsp;&nbsp;top: 0;<br/>
+&nbsp;&nbsp;z-index: 100;<br/>
+&nbsp;&nbsp;/* rest of your styles */<br/>
+}
+    </div>
+    <div class="tip-box"><strong>💡 Important:</strong> The z-index: 100 ensures the navbar stays on top of all other content on the page. Without this, other elements might appear over the navbar when you scroll.</div>
+
+    <h2>Adding a Hover Effect</h2>
+    <p>Let us add a nice underline effect when the user hovers over a link. This gives great visual feedback:</p>
+    <div class="code-block">
+.nav-links a {<br/>
+&nbsp;&nbsp;color: rgba(255, 255, 255, 0.8);<br/>
+&nbsp;&nbsp;text-decoration: none;<br/>
+&nbsp;&nbsp;padding-bottom: 4px;<br/>
+&nbsp;&nbsp;border-bottom: 2px solid transparent;<br/>
+&nbsp;&nbsp;transition: all 0.2s;<br/>
+}<br/>
+<br/>
+.nav-links a:hover {<br/>
+&nbsp;&nbsp;color: white;<br/>
+&nbsp;&nbsp;border-bottom-color: #2DA58E;<br/>
+}
+    </div>
+
+    <h2>The Complete Code</h2>
+    <p>Here is the complete HTML and CSS for your navigation bar all in one place:</p>
+    <div class="code-block">
+&lt;!-- HTML --&gt;<br/>
+&lt;nav class="navbar"&gt;<br/>
+&nbsp;&nbsp;&lt;a href="index.html" class="logo"&gt;MyWebsite&lt;/a&gt;<br/>
+&nbsp;&nbsp;&lt;ul class="nav-links"&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="index.html"&gt;Home&lt;/a&gt;&lt;/li&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="about.html"&gt;About&lt;/a&gt;&lt;/li&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="blog.html"&gt;Blog&lt;/a&gt;&lt;/li&gt;<br/>
+&nbsp;&nbsp;&lt;/ul&gt;<br/>
+&lt;/nav&gt;<br/>
+<br/>
+&lt;!-- CSS --&gt;<br/>
+&lt;style&gt;<br/>
+.navbar { background:#1A2E29; padding:0 2rem; display:flex;<br/>
+&nbsp;&nbsp;align-items:center; justify-content:space-between; height:64px;<br/>
+&nbsp;&nbsp;position:sticky; top:0; z-index:100; }<br/>
+.logo { color:white; text-decoration:none; font-size:1.3rem; font-weight:700; }<br/>
+.nav-links { list-style:none; display:flex; gap:2rem; }<br/>
+.nav-links a { color:rgba(255,255,255,0.8); text-decoration:none; transition:color 0.2s; }<br/>
+.nav-links a:hover { color:white; }<br/>
+&lt;/style&gt;
+    </div>
+
+    <h2>What to Learn Next?</h2>
+    <p>Now that you have built your first navigation bar, here are some things to try next:</p>
+    <ul>
+      <li>Add a hamburger menu for mobile devices using JavaScript</li>
+      <li>Add a dropdown menu for subcategories</li>
+      <li>Highlight the active page link</li>
+      <li>Add a logo image instead of text</li>
+    </ul>
+    <p>Keep building and check out more tutorials on <a href="blog.html" style="color:var(--green)">DebugDiaries</a>!</p>
+  </div>
+</div>
+<footer>
+  <div class="footer-links">
+    <a href="index.html">Home</a><a href="blog.html">Blog</a><a href="about.html">About</a><a href="privacy.html">Privacy Policy</a>
+  </div>
+  <p>© 2026 DebugDiaries · Made with ❤️ by Saman · Pakistan</p>
+</footer>
+</body>
+</html>

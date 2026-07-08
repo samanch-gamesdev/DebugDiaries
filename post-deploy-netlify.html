@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>How to Deploy Your Website on Netlify for Free — DebugDiaries</title>
+  <meta name="description" content="Learn how to deploy your website on Netlify for free. Step by step guide for beginners — from GitHub to live website in minutes."/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet"/>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3564160409092253" crossorigin="anonymous"></script>
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root { --green:#2DA58E; --green-light:#E6F7F3; --green-dark:#1B7A68; --teal-mid:#3DBFA6; --white:#FFFFFF; --off-white:#F7FDFB; --text:#1A2E29; --text-muted:#5A7570; --border:#C8EBE3; --tag-bg:#D4F5ED; }
+    body { font-family:'Inter',sans-serif; background:var(--off-white); color:var(--text); line-height:1.8; }
+    nav { background:var(--white); border-bottom:1px solid var(--border); position:sticky; top:0; z-index:100; padding:0 2rem; display:flex; align-items:center; justify-content:space-between; height:62px; }
+    .nav-logo { font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:1.25rem; color:var(--green-dark); text-decoration:none; }
+    .nav-logo span { color:var(--green); }
+    .nav-links { display:flex; gap:2rem; list-style:none; }
+    .nav-links a { text-decoration:none; color:var(--text-muted); font-size:.95rem; font-weight:500; }
+    .nav-links a:hover { color:var(--green); }
+    .post-hero { background:linear-gradient(135deg,#E6F7F3,#fff); padding:3rem 2rem 2rem; border-bottom:1px solid var(--border); }
+    .post-hero .container { max-width:780px; margin:0 auto; }
+    .tag { display:inline-block; background:var(--tag-bg); color:var(--green-dark); font-size:.72rem; font-weight:600; padding:3px 10px; border-radius:20px; text-transform:uppercase; letter-spacing:.05em; margin-bottom:1rem; }
+    .post-hero h1 { font-family:'Space Grotesk',sans-serif; font-size:clamp(1.6rem,4vw,2.4rem); font-weight:700; line-height:1.2; margin-bottom:.8rem; }
+    .post-meta { display:flex; align-items:center; gap:1rem; color:var(--text-muted); font-size:.85rem; }
+    .avatar { width:32px; height:32px; border-radius:50%; background:var(--green); color:#fff; font-size:.75rem; font-weight:700; display:flex; align-items:center; justify-content:center; }
+    .container { max-width:780px; margin:0 auto; padding:2.5rem 1.5rem; }
+    .post-body h2 { font-family:'Space Grotesk',sans-serif; font-size:1.3rem; font-weight:700; margin:2rem 0 .8rem; color:var(--green-dark); }
+    .post-body p { font-size:.97rem; color:var(--text-muted); margin-bottom:1rem; }
+    .post-body ul, .post-body ol { margin:.5rem 0 1rem 1.5rem; }
+    .post-body li { font-size:.97rem; color:var(--text-muted); margin-bottom:.6rem; }
+    .code-block { background:#1A2E29; color:#A8F0E0; border-radius:10px; padding:1.4rem 1.6rem; font-family:monospace; font-size:.88rem; line-height:1.7; margin:1.2rem 0; overflow-x:auto; }
+    .tip-box { background:var(--green-light); border-left:4px solid var(--green); border-radius:0 8px 8px 0; padding:1rem 1.2rem; margin:1.2rem 0; font-size:.9rem; color:var(--green-dark); }
+    .ad-box { background:#f0f0f0; border:1px dashed #ccc; border-radius:8px; padding:1rem; text-align:center; color:#aaa; font-size:.78rem; margin:1.5rem 0; min-height:90px; display:flex; align-items:center; justify-content:center; }
+    .step-box { background:var(--white); border:1px solid var(--border); border-radius:10px; padding:1.2rem 1.5rem; margin:1rem 0; display:flex; gap:1rem; align-items:flex-start; }
+    .step-num { background:var(--green); color:#fff; width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:.9rem; flex-shrink:0; }
+    .step-content h3 { font-family:'Space Grotesk',sans-serif; font-size:1rem; font-weight:700; margin-bottom:.3rem; }
+    .step-content p { font-size:.88rem; color:var(--text-muted); margin:0; }
+    footer { background:var(--text); color:rgba(255,255,255,.7); padding:2rem; text-align:center; font-size:.85rem; margin-top:2rem; }
+    footer a { color:var(--teal-mid); text-decoration:none; }
+    .footer-links { display:flex; justify-content:center; gap:2rem; margin-bottom:1rem; flex-wrap:wrap; }
+  </style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">🐛 Debug<span>Diaries</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="privacy.html">Privacy</a></li>
+  </ul>
+</nav>
+<div class="post-hero">
+  <div class="container">
+    <span class="tag">Deployment</span>
+    <h1>How to Deploy Your Website on Netlify for Free</h1>
+    <div class="post-meta">
+      <div class="avatar">S</div>
+      <span>By Saman</span><span>·</span><span>6 min read</span><span>·</span><span>July 2026</span>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="post-body">
+    <p>You have built your first website — congratulations! Now it is time to share it with the world. Netlify is one of the easiest and most popular ways to host a website completely for free. In this guide, you will learn exactly how to deploy your website on Netlify step by step.</p>
+    <p>By the end of this tutorial, your website will be live on the internet with a real URL that anyone can visit!</p>
+
+    <div class="ad-box">Advertisement</div>
+
+    <h2>What is Netlify?</h2>
+    <p>Netlify is a free web hosting platform that makes it incredibly easy to deploy websites. It is especially popular among front-end developers because it works perfectly with HTML, CSS, and JavaScript websites. Some of the best features of Netlify include:</p>
+    <ul>
+      <li>Free hosting with a custom netlify.app subdomain</li>
+      <li>Automatic deployments when you push to GitHub</li>
+      <li>Free SSL certificate (HTTPS) for all sites</li>
+      <li>Fast global content delivery network (CDN)</li>
+      <li>Easy drag and drop deployment</li>
+    </ul>
+
+    <h2>Method 1: Drag and Drop (Easiest)</h2>
+    <p>The fastest way to deploy on Netlify is to simply drag and drop your project folder onto the Netlify website. Here is how:</p>
+
+    <div class="step-box">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h3>Create a Netlify Account</h3>
+        <p>Go to netlify.com and sign up for a free account. You can sign up with your GitHub account for even easier setup.</p>
+      </div>
+    </div>
+    <div class="step-box">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h3>Go to Your Dashboard</h3>
+        <p>After logging in, you will see your Netlify dashboard. Scroll down and you will see a drag and drop area.</p>
+      </div>
+    </div>
+    <div class="step-box">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h3>Drag Your Project Folder</h3>
+        <p>Open your file explorer, find your project folder, and drag it directly into the Netlify drop zone. Make sure your main file is named index.html!</p>
+      </div>
+    </div>
+    <div class="step-box">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <h3>Your Site is Live!</h3>
+        <p>Netlify will automatically deploy your site and give you a random URL like amazing-site-123.netlify.app. Your site is now live!</p>
+      </div>
+    </div>
+
+    <div class="ad-box">Advertisement</div>
+
+    <h2>Method 2: Deploy from GitHub (Recommended)</h2>
+    <p>The better way to use Netlify is to connect it to your GitHub repository. This way, every time you push an update to GitHub, Netlify automatically updates your live site too!</p>
+
+    <div class="step-box">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h3>Push Your Code to GitHub</h3>
+        <p>Make sure your project is on GitHub. Create a repository and upload all your files.</p>
+      </div>
+    </div>
+    <div class="step-box">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h3>Click "Add New Site" in Netlify</h3>
+        <p>In your Netlify dashboard, click "Add new site" then "Import an existing project".</p>
+      </div>
+    </div>
+    <div class="step-box">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h3>Connect GitHub</h3>
+        <p>Click "GitHub" and authorize Netlify to access your repositories. Then select the repository you want to deploy.</p>
+      </div>
+    </div>
+    <div class="step-box">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <h3>Deploy!</h3>
+        <p>Click "Deploy site" and Netlify will build and deploy your site automatically. From now on, every GitHub push will trigger a new deployment!</p>
+      </div>
+    </div>
+
+    <div class="tip-box"><strong>🎉 Pro Tip:</strong> Make sure your main HTML file is always named <strong>index.html</strong>. Netlify (and all web servers) automatically serve index.html as the homepage. If your file has any other name, visitors will get a "Page not found" error.</div>
+
+    <h2>Changing Your Site Name</h2>
+    <p>By default, Netlify gives your site a random name. You can change it to something more memorable:</p>
+    <ol>
+      <li>Go to your site dashboard in Netlify</li>
+      <li>Click "Site configuration" or "Site settings"</li>
+      <li>Under "Site details", click "Change site name"</li>
+      <li>Enter your preferred name (e.g., myportfolio.netlify.app)</li>
+    </ol>
+
+    <h2>What to Learn Next?</h2>
+    <ul>
+      <li>Connect a custom domain to your Netlify site</li>
+      <li>Set up Netlify Forms to receive form submissions</li>
+      <li>Use Netlify environment variables for sensitive data</li>
+      <li>Learn about continuous deployment and CI/CD</li>
+    </ul>
+    <p>Deploying your first website is a huge milestone — well done! Check out more tutorials on <a href="blog.html" style="color:var(--green)">DebugDiaries</a>!</p>
+  </div>
+</div>
+<footer>
+  <div class="footer-links">
+    <a href="index.html">Home</a><a href="blog.html">Blog</a><a href="about.html">About</a><a href="privacy.html">Privacy Policy</a>
+  </div>
+  <p>© 2026 DebugDiaries · Made with ❤️ by Saman · Pakistan</p>
+</footer>
+</body>
+</html>

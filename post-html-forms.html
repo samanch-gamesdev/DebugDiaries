@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HTML Forms Tutorial for Beginners — DebugDiaries</title>
+  <meta name="description" content="Learn how to create HTML forms from scratch. This beginner tutorial covers form elements, input types, labels, and basic form styling with CSS."/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet"/>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3564160409092253" crossorigin="anonymous"></script>
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root { --green:#2DA58E; --green-light:#E6F7F3; --green-dark:#1B7A68; --teal-mid:#3DBFA6; --white:#FFFFFF; --off-white:#F7FDFB; --text:#1A2E29; --text-muted:#5A7570; --border:#C8EBE3; --tag-bg:#D4F5ED; }
+    body { font-family:'Inter',sans-serif; background:var(--off-white); color:var(--text); line-height:1.8; }
+    nav { background:var(--white); border-bottom:1px solid var(--border); position:sticky; top:0; z-index:100; padding:0 2rem; display:flex; align-items:center; justify-content:space-between; height:62px; }
+    .nav-logo { font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:1.25rem; color:var(--green-dark); text-decoration:none; }
+    .nav-logo span { color:var(--green); }
+    .nav-links { display:flex; gap:2rem; list-style:none; }
+    .nav-links a { text-decoration:none; color:var(--text-muted); font-size:.95rem; font-weight:500; }
+    .nav-links a:hover { color:var(--green); }
+    .post-hero { background:linear-gradient(135deg,#E6F7F3,#fff); padding:3rem 2rem 2rem; border-bottom:1px solid var(--border); }
+    .post-hero .container { max-width:780px; margin:0 auto; }
+    .tag { display:inline-block; background:var(--tag-bg); color:var(--green-dark); font-size:.72rem; font-weight:600; padding:3px 10px; border-radius:20px; text-transform:uppercase; letter-spacing:.05em; margin-bottom:1rem; }
+    .post-hero h1 { font-family:'Space Grotesk',sans-serif; font-size:clamp(1.6rem,4vw,2.4rem); font-weight:700; line-height:1.2; margin-bottom:.8rem; }
+    .post-meta { display:flex; align-items:center; gap:1rem; color:var(--text-muted); font-size:.85rem; }
+    .avatar { width:32px; height:32px; border-radius:50%; background:var(--green); color:#fff; font-size:.75rem; font-weight:700; display:flex; align-items:center; justify-content:center; }
+    .container { max-width:780px; margin:0 auto; padding:2.5rem 1.5rem; }
+    .post-body h2 { font-family:'Space Grotesk',sans-serif; font-size:1.3rem; font-weight:700; margin:2rem 0 .8rem; color:var(--green-dark); }
+    .post-body p { font-size:.97rem; color:var(--text-muted); margin-bottom:1rem; }
+    .post-body ul { margin:.5rem 0 1rem 1.5rem; }
+    .post-body li { font-size:.97rem; color:var(--text-muted); margin-bottom:.6rem; }
+    .code-block { background:#1A2E29; color:#A8F0E0; border-radius:10px; padding:1.4rem 1.6rem; font-family:monospace; font-size:.88rem; line-height:1.7; margin:1.2rem 0; overflow-x:auto; }
+    .tip-box { background:var(--green-light); border-left:4px solid var(--green); border-radius:0 8px 8px 0; padding:1rem 1.2rem; margin:1.2rem 0; font-size:.9rem; color:var(--green-dark); }
+    .ad-box { background:#f0f0f0; border:1px dashed #ccc; border-radius:8px; padding:1rem; text-align:center; color:#aaa; font-size:.78rem; margin:1.5rem 0; min-height:90px; display:flex; align-items:center; justify-content:center; }
+    .demo-form { background:var(--white); border:1px solid var(--border); border-radius:12px; padding:1.5rem; margin:1rem 0; }
+    .demo-form label { display:block; font-size:.88rem; font-weight:600; margin-bottom:.4rem; color:var(--text); }
+    .demo-form input, .demo-form textarea, .demo-form select { width:100%; padding:.6rem .9rem; border:1px solid var(--border); border-radius:7px; font-size:.9rem; margin-bottom:1rem; outline:none; }
+    .demo-form input:focus { border-color:var(--green); }
+    .demo-form button { background:var(--green); color:#fff; border:none; padding:.7rem 1.5rem; border-radius:7px; font-size:.9rem; font-weight:600; cursor:pointer; }
+    footer { background:var(--text); color:rgba(255,255,255,.7); padding:2rem; text-align:center; font-size:.85rem; margin-top:2rem; }
+    footer a { color:var(--teal-mid); text-decoration:none; }
+    .footer-links { display:flex; justify-content:center; gap:2rem; margin-bottom:1rem; flex-wrap:wrap; }
+  </style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">🐛 Debug<span>Diaries</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="privacy.html">Privacy</a></li>
+  </ul>
+</nav>
+<div class="post-hero">
+  <div class="container">
+    <span class="tag">HTML</span>
+    <h1>HTML Forms Tutorial for Beginners — Complete Guide</h1>
+    <div class="post-meta">
+      <div class="avatar">S</div>
+      <span>By Saman</span><span>·</span><span>8 min read</span><span>·</span><span>July 2026</span>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="post-body">
+    <p>Forms are everywhere on the internet — login pages, contact forms, search bars, signup pages, and much more. Learning how to create HTML forms is an essential skill for every web developer. In this tutorial, you will learn everything you need to know about HTML forms from scratch.</p>
+
+    <div class="ad-box">Advertisement</div>
+
+    <h2>What is an HTML Form?</h2>
+    <p>An HTML form is a section of a webpage that allows users to enter and submit data. When a user fills out a form and clicks submit, the data is sent to a server for processing. Forms are used for everything from logging in to a website to placing an online order.</p>
+
+    <h2>The Basic Form Structure</h2>
+    <p>Every HTML form starts with the form element. Here is the most basic form possible:</p>
+    <div class="code-block">
+&lt;form action="/submit" method="POST"&gt;<br/>
+&nbsp;&nbsp;&lt;!-- form elements go here --&gt;<br/>
+&lt;/form&gt;
+    </div>
+    <p>The form element has two important attributes:</p>
+    <ul>
+      <li><strong>action</strong> — the URL where the form data will be sent when submitted</li>
+      <li><strong>method</strong> — how the data is sent (GET or POST)</li>
+    </ul>
+
+    <h2>Input Fields</h2>
+    <p>The input element is the most common form element. It creates different types of input fields depending on the type attribute:</p>
+    <div class="code-block">
+&lt;!-- Text input --&gt;<br/>
+&lt;input type="text" placeholder="Enter your name"/&gt;<br/>
+<br/>
+&lt;!-- Email input --&gt;<br/>
+&lt;input type="email" placeholder="Enter your email"/&gt;<br/>
+<br/>
+&lt;!-- Password input --&gt;<br/>
+&lt;input type="password" placeholder="Enter password"/&gt;<br/>
+<br/>
+&lt;!-- Number input --&gt;<br/>
+&lt;input type="number" placeholder="Enter a number"/&gt;<br/>
+<br/>
+&lt;!-- Submit button --&gt;<br/>
+&lt;input type="submit" value="Submit Form"/&gt;
+    </div>
+
+    <div class="ad-box">Advertisement</div>
+
+    <h2>Labels — Always Use Them!</h2>
+    <p>Every input field should have a label that describes what it is for. Labels are important for accessibility and usability:</p>
+    <div class="code-block">
+&lt;label for="username"&gt;Username:&lt;/label&gt;<br/>
+&lt;input type="text" id="username" name="username"/&gt;
+    </div>
+    <div class="tip-box"><strong>💡 Tip:</strong> The for attribute on the label should match the id attribute on the input. This connects them so clicking the label also focuses the input field — which is great for usability!</div>
+
+    <h2>A Complete Contact Form</h2>
+    <p>Here is a complete, styled contact form with all the common elements:</p>
+    <div class="demo-form">
+      <label>Full Name</label>
+      <input type="text" placeholder="Enter your full name"/>
+      <label>Email Address</label>
+      <input type="email" placeholder="your@email.com"/>
+      <label>Message</label>
+      <textarea rows="4" placeholder="Write your message here..."></textarea>
+      <button type="button">Send Message</button>
+    </div>
+
+    <h2>The Code for This Form</h2>
+    <div class="code-block">
+&lt;form&gt;<br/>
+&nbsp;&nbsp;&lt;label for="name"&gt;Full Name&lt;/label&gt;<br/>
+&nbsp;&nbsp;&lt;input type="text" id="name" placeholder="Enter your name"/&gt;<br/>
+<br/>
+&nbsp;&nbsp;&lt;label for="email"&gt;Email Address&lt;/label&gt;<br/>
+&nbsp;&nbsp;&lt;input type="email" id="email" placeholder="your@email.com"/&gt;<br/>
+<br/>
+&nbsp;&nbsp;&lt;label for="message"&gt;Message&lt;/label&gt;<br/>
+&nbsp;&nbsp;&lt;textarea id="message" rows="4"&gt;&lt;/textarea&gt;<br/>
+<br/>
+&nbsp;&nbsp;&lt;button type="submit"&gt;Send Message&lt;/button&gt;<br/>
+&lt;/form&gt;
+    </div>
+
+    <h2>What to Learn Next?</h2>
+    <ul>
+      <li>Form validation with HTML attributes (required, minlength, pattern)</li>
+      <li>Styling forms with CSS to make them look professional</li>
+      <li>JavaScript form validation for better user experience</li>
+      <li>Sending form data using a backend or a service like Formspree</li>
+    </ul>
+    <p>Check out more tutorials on <a href="blog.html" style="color:var(--green)">DebugDiaries</a>!</p>
+  </div>
+</div>
+<footer>
+  <div class="footer-links">
+    <a href="index.html">Home</a><a href="blog.html">Blog</a><a href="about.html">About</a><a href="privacy.html">Privacy Policy</a>
+  </div>
+  <p>© 2026 DebugDiaries · Made with ❤️ by Saman · Pakistan</p>
+</footer>
+</body>
+</html>
