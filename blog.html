@@ -4,8 +4,9 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Blog — DebugDiaries</title>
-  <meta name="description" content="Read all web development articles on DebugDiaries. Learn HTML, CSS, JavaScript and Git step by step."/>
+  <meta name="description" content="Read all web development articles on DebugDiaries. Learn HTML, CSS, JavaScript, Git and more step by step."/>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet"/>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3564160409092253" crossorigin="anonymous"></script>
   <style>
     *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
     :root { --green:#2DA58E; --green-light:#E6F7F3; --green-dark:#1B7A68; --teal-mid:#3DBFA6; --white:#FFFFFF; --off-white:#F7FDFB; --text:#1A2E29; --text-muted:#5A7570; --border:#C8EBE3; --tag-bg:#D4F5ED; }
@@ -22,10 +23,15 @@
     .container { max-width:1100px; margin:0 auto; padding:3rem 1.5rem; }
     .layout { display:grid; grid-template-columns:1fr 300px; gap:2.5rem; }
     .tag { display:inline-block; background:var(--tag-bg); color:var(--green-dark); font-size:.72rem; font-weight:600; padding:3px 10px; border-radius:20px; text-transform:uppercase; letter-spacing:.05em; }
-    .article-card { background:var(--white); border:1px solid var(--border); border-radius:12px; padding:1.5rem; margin-bottom:1.4rem; transition:box-shadow .2s, transform .2s; }
-    .article-card:hover { box-shadow:0 6px 24px rgba(45,165,142,.12); transform:translateY(-2px); }
+    .featured-card { background:linear-gradient(135deg,var(--green-dark),var(--green)); color:#fff; border-radius:14px; padding:2rem; margin-bottom:1.4rem; }
+    .featured-card .tag { background:rgba(255,255,255,.2); color:#fff; }
+    .featured-card h3 { font-family:'Space Grotesk',sans-serif; font-size:1.3rem; font-weight:700; margin:.8rem 0 .5rem; }
+    .featured-card p { font-size:.9rem; opacity:.85; margin-bottom:1.2rem; }
+    .featured-card .read-link { color:#fff; font-weight:600; text-decoration:none; font-size:.85rem; }
     .card-top { display:flex; align-items:center; gap:10px; margin-bottom:.8rem; }
     .read-time { font-size:.78rem; color:var(--text-muted); }
+    .article-card { background:var(--white); border:1px solid var(--border); border-radius:12px; padding:1.5rem; margin-bottom:1.4rem; transition:box-shadow .2s, transform .2s; }
+    .article-card:hover { box-shadow:0 6px 24px rgba(45,165,142,.12); transform:translateY(-2px); }
     .article-card h3 { font-family:'Space Grotesk',sans-serif; font-size:1.1rem; font-weight:700; margin-bottom:.5rem; }
     .article-card p { font-size:.9rem; color:var(--text-muted); margin-bottom:1rem; }
     .card-footer { display:flex; align-items:center; justify-content:space-between; }
@@ -34,11 +40,9 @@
     .author-name { font-size:.8rem; font-weight:500; }
     .read-link { font-size:.82rem; color:var(--green); font-weight:600; text-decoration:none; }
     .read-link:hover { text-decoration:underline; }
-    .featured-card { background:linear-gradient(135deg,var(--green-dark),var(--green)); color:#fff; border-radius:14px; padding:2rem; margin-bottom:1.4rem; }
-    .featured-card .tag { background:rgba(255,255,255,.2); color:#fff; }
-    .featured-card h3 { font-family:'Space Grotesk',sans-serif; font-size:1.3rem; font-weight:700; margin:.8rem 0 .5rem; }
-    .featured-card p { font-size:.9rem; opacity:.85; margin-bottom:1.2rem; }
-    .featured-card .read-link { color:#fff; opacity:.9; }
+    .section-header { display:flex; align-items:center; gap:12px; margin-bottom:1.4rem; margin-top:2rem; }
+    .section-header h2 { font-family:'Space Grotesk',sans-serif; font-size:1.1rem; font-weight:700; white-space:nowrap; }
+    .section-line { flex:1; height:2px; background:linear-gradient(to right,var(--border),transparent); }
     .sidebar-card { background:var(--white); border:1px solid var(--border); border-radius:12px; padding:1.4rem; margin-bottom:1.4rem; }
     .sidebar-card h3 { font-family:'Space Grotesk',sans-serif; font-size:1rem; font-weight:700; margin-bottom:1rem; }
     .topic-list { list-style:none; }
@@ -53,7 +57,6 @@
     .footer-links { display:flex; justify-content:center; gap:2rem; margin-bottom:1rem; flex-wrap:wrap; }
     @media(max-width:768px) { .layout { grid-template-columns:1fr; } }
   </style>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3564160409092253" crossorigin="anonymous"></script>
 </head>
 <body>
 <nav>
@@ -68,12 +71,13 @@
 
 <div class="page-hero">
   <h1>All Articles 📝</h1>
-  <p>Simple web development tutorials for beginners</p>
+  <p>Simple web development tutorials for complete beginners</p>
 </div>
 
 <div class="container">
   <div class="layout">
     <main>
+
       <!-- Featured -->
       <div class="featured-card">
         <div class="card-top">
@@ -81,55 +85,129 @@
           <span class="read-time" style="opacity:.8">5 min read</span>
         </div>
         <h3>HTML for Absolute Beginners — Start Here</h3>
-        <p>Never written a single line of code? This guide takes you from zero to your first webpage in under an hour.</p>
+        <p>Never written a single line of code? This guide takes you from zero to your first webpage in under an hour. No experience needed.</p>
         <a href="post-html-beginners.html" class="read-link">Read Article →</a>
       </div>
 
-      <div class="ad-box"><!-- Google AdSense -->Advertisement</div>
+      <div class="ad-box">Advertisement</div>
 
-      <!-- Card 1 -->
+      <!-- HTML Section -->
+      <div class="section-header">
+        <h2>HTML Tutorials</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="article-card">
+        <div class="card-top"><span class="tag">HTML</span><span class="read-time">8 min read</span></div>
+        <h3>HTML Forms Tutorial for Beginners — Complete Guide</h3>
+        <p>Forms are everywhere on the internet. Learn how to create contact forms, login forms, and more using HTML form elements, input types, and labels.</p>
+        <div class="card-footer">
+          <div class="author-row"><div class="avatar">S</div><span class="author-name">Saman</span></div>
+          <a href="post-html-forms.html" class="read-link">Read →</a>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <div class="card-top"><span class="tag">HTML & CSS</span><span class="read-time">7 min read</span></div>
+        <h3>How to Build a Navigation Bar with HTML and CSS</h3>
+        <p>A navigation bar is one of the most important parts of any website. Learn how to build a clean, professional navbar from scratch using only HTML and CSS.</p>
+        <div class="card-footer">
+          <div class="author-row"><div class="avatar">S</div><span class="author-name">Saman</span></div>
+          <a href="post-navigation-bar.html" class="read-link">Read →</a>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <div class="card-top"><span class="tag">HTML</span><span class="read-time">3 min read</span></div>
+        <h3>What is Semantic HTML and Why Should You Care?</h3>
+        <p>Using the right HTML tags makes your site better for SEO and accessibility. Here is what semantic HTML means and how to use it in your projects.</p>
+        <div class="card-footer">
+          <div class="author-row"><div class="avatar">S</div><span class="author-name">Saman</span></div>
+          <a href="post-html-beginners.html" class="read-link">Read →</a>
+        </div>
+      </div>
+
+      <div class="ad-box">Advertisement</div>
+
+      <!-- CSS Section -->
+      <div class="section-header">
+        <h2>CSS Tutorials</h2>
+        <div class="section-line"></div>
+      </div>
+
       <div class="article-card">
         <div class="card-top"><span class="tag">CSS</span><span class="read-time">4 min read</span></div>
         <h3>CSS Flexbox Explained — With Real Examples</h3>
-        <p>Flexbox confuses every beginner. This article breaks it down with visual diagrams and practical examples.</p>
+        <p>Flexbox confuses every beginner. This article breaks it down with visual diagrams and practical examples you can use right away in your projects.</p>
         <div class="card-footer">
           <div class="author-row"><div class="avatar">S</div><span class="author-name">Saman</span></div>
           <a href="post-css-flexbox.html" class="read-link">Read →</a>
         </div>
       </div>
 
-      <!-- Card 2 -->
+      <div class="article-card">
+        <div class="card-top"><span class="tag">CSS</span><span class="read-time">8 min read</span></div>
+        <h3>CSS Grid Explained for Beginners — With Real Examples</h3>
+        <p>CSS Grid is the most powerful layout tool in CSS. Learn how to create rows, columns, and complex layouts with simple, easy-to-understand examples.</p>
+        <div class="card-footer">
+          <div class="author-row"><div class="avatar">S</div><span class="author-name">Saman</span></div>
+          <a href="post-css-grid.html" class="read-link">Read →</a>
+        </div>
+      </div>
+
+      <div class="ad-box">Advertisement</div>
+
+      <!-- JavaScript Section -->
+      <div class="section-header">
+        <h2>JavaScript Tutorials</h2>
+        <div class="section-line"></div>
+      </div>
+
       <div class="article-card">
         <div class="card-top"><span class="tag">JavaScript</span><span class="read-time">6 min read</span></div>
         <h3>JavaScript Variables: var vs let vs const</h3>
-        <p>What is the difference between var, let, and const? Answered clearly and simply for beginners.</p>
+        <p>What is the difference between var, let, and const? This is one of the most common beginner questions — answered clearly and simply with examples.</p>
         <div class="card-footer">
           <div class="author-row"><div class="avatar">S</div><span class="author-name">Saman</span></div>
           <a href="post-js-variables.html" class="read-link">Read →</a>
         </div>
       </div>
 
-      <div class="ad-box"><!-- Google AdSense -->Advertisement</div>
+      <div class="article-card">
+        <div class="card-top"><span class="tag">JavaScript</span><span class="read-time">9 min read</span></div>
+        <h3>JavaScript Functions for Beginners — Complete Guide</h3>
+        <p>Functions are the building blocks of JavaScript. Learn what functions are, how to write them, how to use parameters, and the modern arrow function syntax.</p>
+        <div class="card-footer">
+          <div class="author-row"><div class="avatar">S</div><span class="author-name">Saman</span></div>
+          <a href="post-js-functions.html" class="read-link">Read →</a>
+        </div>
+      </div>
 
-      <!-- Card 3 -->
+      <div class="ad-box">Advertisement</div>
+
+      <!-- Git Section -->
+      <div class="section-header">
+        <h2>Git & Deployment</h2>
+        <div class="section-line"></div>
+      </div>
+
       <div class="article-card">
         <div class="card-top"><span class="tag">Git</span><span class="read-time">5 min read</span></div>
         <h3>Git & GitHub: Your First Repository in 10 Minutes</h3>
-        <p>Every developer needs Git. Learn how to create your first repository and push to GitHub step by step.</p>
+        <p>Every developer needs Git. Learn how to create your first repository, make commits, and push to GitHub — step by step guide for complete beginners.</p>
         <div class="card-footer">
           <div class="author-row"><div class="avatar">S</div><span class="author-name">Saman</span></div>
           <a href="post-git-basics.html" class="read-link">Read →</a>
         </div>
       </div>
 
-      <!-- Card 4 -->
       <div class="article-card">
-        <div class="card-top"><span class="tag">HTML</span><span class="read-time">3 min read</span></div>
-        <h3>What is Semantic HTML and Why Should You Care?</h3>
-        <p>Using the right HTML tags makes your site better for SEO and accessibility. Here is what semantic HTML means.</p>
+        <div class="card-top"><span class="tag">Deployment</span><span class="read-time">6 min read</span></div>
+        <h3>How to Deploy Your Website on Netlify for Free</h3>
+        <p>You have built your website — now make it live! Learn how to deploy any HTML/CSS/JS website on Netlify for free in just a few minutes.</p>
         <div class="card-footer">
           <div class="author-row"><div class="avatar">S</div><span class="author-name">Saman</span></div>
-          <a href="#" class="read-link">Coming Soon →</a>
+          <a href="post-deploy-netlify.html" class="read-link">Read →</a>
         </div>
       </div>
 
@@ -139,13 +217,14 @@
       <div class="sidebar-card">
         <h3>Browse Topics</h3>
         <ul class="topic-list">
-          <li><a href="#">HTML</a><span class="topic-count">5</span></li>
-          <li><a href="#">CSS</a><span class="topic-count">4</span></li>
-          <li><a href="#">JavaScript</a><span class="topic-count">4</span></li>
-          <li><a href="#">Git & GitHub</a><span class="topic-count">2</span></li>
+          <li><a href="#">HTML</a><span class="topic-count">4</span></li>
+          <li><a href="#">CSS</a><span class="topic-count">3</span></li>
+          <li><a href="#">JavaScript</a><span class="topic-count">3</span></li>
+          <li><a href="#">Git & GitHub</a><span class="topic-count">1</span></li>
+          <li><a href="#">Deployment</a><span class="topic-count">1</span></li>
         </ul>
       </div>
-      <div class="ad-box" style="min-height:250px;"><!-- Google AdSense -->Advertisement</div>
+      <div class="ad-box" style="min-height:250px;">Advertisement</div>
       <div class="sidebar-card">
         <h3>👩‍💻 About the Author</h3>
         <p style="font-size:.85rem;color:var(--text-muted)">Hi! I am Saman, a CS student and web developer from Pakistan writing simple tutorials for beginners.</p>
